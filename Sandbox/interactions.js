@@ -1,9 +1,28 @@
-	function Square(row, column) {
+if (typeof(arimaa) === 'undefined') {
+    var arimaa = {};
+    alert('requires arimaa.js');
+}
+
+if (typeof(arimaa.interactions) === 'undefined') {
+    arimaa.interactions = {};
+}
+
+arimaa.interactions = (function() {
+	"use strict";
+
+	var canvas = null,
+
+	initialize = function(canvasDomNode){
+		canvas = canvasDomNode;
+		canvas.addEventListener("click", boardOnClick, false);
+	},
+
+	Square = function (row, column) {
 	   this.row = row;
 	   this.column = column;
-	}
+	},
 
-	function getCursorPosition(e) {
+	getCursorPosition = function (e) {
     /* returns Square with .row and .column properties */
     var x;
     var y;
@@ -21,9 +40,9 @@
     y = Math.min(y, board.height * standardPlayingPiece.height);
     var square = new Square(Math.floor(y/standardPlayingPiece.height), Math.floor(x/standardPlayingPiece.width));
     return square;
-	}
+	},
 
-	function boardOnClick(e) {
+	boardOnClick = function(e) {
 	    var square = getCursorPosition(e);
 	    console.log("clicked on column " + square.column + " and row " + square.row);
 	   //  for (var i = 0; i < gNumPieces; i++) {
@@ -34,4 +53,9 @@
 				// }
 	   //  }
 	    //clickOnEmptyCell(cell);
-	}
+	};
+
+	return{
+		initialize: initialize
+	};
+}());

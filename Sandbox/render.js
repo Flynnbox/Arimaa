@@ -1,8 +1,28 @@
-	function clearBoard(context, board){
-		context.clearRect(board.x, board.y, board.width, board.height)
-	}
+if (typeof(arimaa) === 'undefined') {
+    var arimaa = {};
+    alert('requires arimaa.js');
+}
 
-	function drawBoard(context, board){
+if (typeof(arimaa.renderer) === 'undefined') {
+    arimaa.renderer = {};
+}
+
+arimaa.renderer = (function() {
+	"use strict";
+
+	var canvas = null,
+			context = null,
+
+	initialize = function(canvasDomNode){
+		canvas = canvasDomNode;
+		context = canvas.getContext("2d");
+	},
+
+	clearBoard = function (context, board){
+		context.clearRect(board.x, board.y, board.width, board.height);
+	},
+
+	drawBoard = function (context, board){
 		clearBoard(context, board);
 		context.beginPath();
 
@@ -29,9 +49,9 @@
 		//ink Paths
     context.strokeStyle = "#ccc";
     context.stroke();
-	}
+	},
 
-	function loadImage(imageFilePath, success){
+	loadImage = function (imageFilePath, success){
 		var img = new Image();
 		img.onload = function(){
 				if(success !== null) {
@@ -39,15 +59,15 @@
 				}
 			};
 		img.src = imageFilePath;
-	}
+	},
 
-	function drawSprite(color, name, x, y){
+	drawSprite = function (color, name, x, y){
 		var sprite = spriteProvider.getSprite(color, name);
-		console.log(sprite);
+		arimaa.log(sprite);
 		context.drawImage(spriteProvider.image, sprite.x, sprite.y, sprite.width, sprite.height, x, y, sprite.width, sprite.height);
-	}
+	},
 
-	function render(){
+	render = function (){
 		drawBoard(context, board);
 
 		//draw gold sprites
@@ -65,4 +85,15 @@
 		drawSprite("silver", "dog", 152.5, 52.5);
 		drawSprite("silver", "cat", 202.5, 52.5);
 		drawSprite("silver", "rabbit", 252.5, 52.5);
-	}
+	};
+
+	return {
+		initialize: initialize,
+		clearBoard: clearBoard,
+		drawBoard: drawBoard,
+		drawSprite: drawSprite,
+		loadImage: loadImage,
+		render: render
+	};
+
+}())
