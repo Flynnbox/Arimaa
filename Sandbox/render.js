@@ -63,7 +63,7 @@ arimaa.renderer = (function() {
 
 	drawSprite = function (color, name, x, y){
 		var sprite = spriteProvider.getSprite(color, name);
-		arimaa.log(sprite);
+		//arimaa.log(sprite);
 		context.drawImage(spriteProvider.image, sprite.x, sprite.y, sprite.width, sprite.height, x, y, sprite.width, sprite.height);
 	},
 
