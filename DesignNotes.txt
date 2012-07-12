@@ -1,0 +1,33 @@
+**These are unorganized design notes not intended for public use.  It's really just me thinking aloud.  Nothin in here is concrete until it is implemented in code (and then it is subject to change).  However, feel free to give me feedback or suggestions on anything you see in here.**
+
+COMPONENTS
+>UI logic / Interaction / Validation / Eventing: Javascript
+>View: Canvas / SVG / HTML or graphics library
+>Server / Email / Save Games / Mult-player / Bots: NodeJS
+>Repository / Game log / State / Multicast: FireBase
+
+DESIGN
+>Hexagonal / Ports structure
+>Model of BoardState (Javascript)
+>Game rules engine (Javascript)
+>Rendering of Board State to View (Javascript, Canvas)
+>Handling of User Interactions (Javascript)
+>Server / Repository communication (Javascript, FireBase, NodeJs)
+>Server Logic / Bot Handling / Multi-player / Email / Save Games (NodeJs, FireBase)
+
+CONNECTIONS / DEPENDENCIES
+Interaction => BoardState / RulesEngine => Event => Rendering
+	OR
+Interaction => Event => BoardState / RulesEngine => Event => Rendering
+
+Interaction => Server / Repository
+
+MISCELLANOUS
+Unit Test BoardState / RulesEngine
+
+DESIGN DECISIONS
+2012/07/12: Use github for code repository
+
+QUESTIONS / ISSUES
+How to unit test interactions?
+How to unit test rendering?
