@@ -12,10 +12,22 @@ arimaa.renderer = (function() {
 
 	var canvas = null,
 			context = null,
+			spriteProvider = null,
 
-	initialize = function(canvasDomNode){
+	loadImage = function (imageFilePath, success){
+		var img = new Image();
+		img.onload = function(){
+				if(success !== null) {
+					success(img);
+				}
+			};
+		img.src = imageFilePath;
+	},
+
+	initialize = function(canvasDomNode, spriteImage){
 		canvas = canvasDomNode;
 		context = canvas.getContext("2d");
+		spriteProvider = createSpriteProvider(spriteImage);
 	},
 
 	clearBoard = function (context, board){
@@ -51,14 +63,38 @@ arimaa.renderer = (function() {
     context.stroke();
 	},
 
-	loadImage = function (imageFilePath, success){
-		var img = new Image();
-		img.onload = function(){
-				if(success !== null) {
-					success(img);
-				}
-			};
-		img.src = imageFilePath;
+	createSpriteProvider = function(image){
+		return {
+			"image": image,
+			"gold": {
+				"elephant": defineSprite(3, 151, 46, 46),
+				"camel": defineSprite(51, 3, 47, 47),
+				"horse": defineSprite(50, 202, 47, 46),
+				"dog": defineSprite(51, 103, 46, 46),
+				"cat": defineSprite(3, 51, 46, 46),
+				"rabbit": defineSprite(2, 250, 46, 46)
+			},
+			"silver": {				
+				"elephant": defineSprite(100, 151, 46, 46),
+				"camel": defineSprite(148, 3, 47, 47),
+				"horse": defineSprite(147, 202, 47, 46),
+				"dog": defineSprite(148, 103, 46, 46),
+				"cat": defineSprite(100, 51, 46, 46),
+				"rabbit": defineSprite(99, 250, 46, 46)
+			},
+			getSprite: function(color, name){
+				return this[color][name];
+			}
+		};
+	},
+
+	defineSprite = function(x, y, width, height){
+		return {
+			"x": x,
+			"y": y,
+			"width": width,
+			"height": height
+		};
 	},
 
 	drawSprite = function (color, name, x, y){
@@ -67,7 +103,12 @@ arimaa.renderer = (function() {
 		context.drawImage(spriteProvider.image, sprite.x, sprite.y, sprite.width, sprite.height, x, y, sprite.width, sprite.height);
 	},
 
-	render = function (){
+	render = function (board){
+		if(typeof(board) == "undefined" || board === null){
+			arimaa.log("board is not defined.");
+			return;
+		}
+
 		drawBoard(context, board);
 
 		//draw gold sprites
@@ -91,6 +132,8 @@ arimaa.renderer = (function() {
 		initialize: initialize,
 		clearBoard: clearBoard,
 		drawBoard: drawBoard,
+		createSpriteProvider: createSpriteProvider,
+		defineSprite: defineSprite,
 		drawSprite: drawSprite,
 		loadImage: loadImage,
 		render: render

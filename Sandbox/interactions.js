@@ -11,9 +11,13 @@ arimaa.interactions = (function() {
 	"use strict";
 
 	var canvas = null,
+			board = null,
+			piece = null,
 
-	initialize = function(canvasDomNode){
+	initialize = function(canvasDomNode, boardSpecification, pieceSpecification){
 		canvas = canvasDomNode;
+		board = boardSpecification;
+		piece = pieceSpecification;
 		canvas.addEventListener("click", boardOnClick, false);
 	},
 
@@ -36,9 +40,9 @@ arimaa.interactions = (function() {
     }
     x -= canvas.offsetLeft;
     y -= canvas.offsetTop;
-    x = Math.min(x, board.width * standardPlayingPiece.width);
-    y = Math.min(y, board.height * standardPlayingPiece.height);
-    var square = new Square(Math.floor(y/standardPlayingPiece.height), Math.floor(x/standardPlayingPiece.width));
+    x = Math.min(x, board.width * piece.width);
+    y = Math.min(y, board.height * piece.height);
+    var square = new Square(Math.floor(y/piece.height), Math.floor(x/piece.width));
     return square;
 	},
 

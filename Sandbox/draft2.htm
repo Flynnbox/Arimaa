@@ -1,11 +1,9 @@
 <html>
 <head>
 	<script type="text/javascript" src="arimaa.js"></script>
+	<script type="text/javascript" src="boardState.js"></script>
 	<script type="text/javascript" src="render.js"></script>
 	<script type="text/javascript" src="interactions.js"></script>
-<!--
-	<script type="text/javascript" src="boardState.js"></script>
--->
 </head>
 <body>
 	<canvas id="sandbox" width="410" height="410"></canvas>
@@ -15,65 +13,13 @@
 "use strict";
 
 	var canvas = document.getElementById("sandbox"),
-			standardPlayingPiece = {"width": 50, "height":50},
-			board = defineBoard(0, 0, standardPlayingPiece),
-			spriteFilePath = "arimaa_50x50.jpg",
-			spriteProvider = null;
-
-	function defineBoard(startX, startY, pieceTemplate){
-		var columns = 8;
-		var rows = 8;
-		return {
-			"x":startX, 
-			"y":startY, 
-			"piece": pieceTemplate,
-			"width": 1 + (columns * pieceTemplate.width), 
-			"height": 1 + (rows * pieceTemplate.height),
-			"traps": [{"x": 2, "y": 2}, {"x": 2, "y": 5}, {"x": 5, "y": 2}, {"x": 5, "y": 5}]
-		};
-	}
-
-	function createSpriteProvider(image){
-		return {
-			"image": image,
-			"gold": {
-				"elephant": defineSprite(3, 151, 46, 46),
-				"camel": defineSprite(51, 3, 47, 47),
-				"horse": defineSprite(50, 202, 47, 46),
-				"dog": defineSprite(51, 103, 46, 46),
-				"cat": defineSprite(3, 51, 46, 46),
-				"rabbit": defineSprite(2, 250, 46, 46)
-			},
-			"silver": {				
-				"elephant": defineSprite(100, 151, 46, 46),
-				"camel": defineSprite(148, 3, 47, 47),
-				"horse": defineSprite(147, 202, 47, 46),
-				"dog": defineSprite(148, 103, 46, 46),
-				"cat": defineSprite(100, 51, 46, 46),
-				"rabbit": defineSprite(99, 250, 46, 46)
-			},
-			getSprite: function(color, name){
-				return this[color][name];
-			}
-		};
-		//TODO: add gold and silver arrays, maybe include image loading
-	}
-
-	function defineSprite(x, y, width, height){
-		return {
-			"x": x,
-			"y": y,
-			"width": width,
-			"height": height
-		};
-	}
+			spriteFilePath = "arimaa_50x50.jpg";
 	
 	function synchronize(image){
-		spriteProvider = createSpriteProvider(image);
-		arimaa.renderer.render();
+		arimaa.renderer.initialize(canvas, image);
+		arimaa.renderer.render(arimaa.boardState.boardSpecification);
+		arimaa.interactions.initialize(canvas, arimaa.boardState.boardSpecification, arimaa.boardState.pieceSpecification);
 	}
 
-	arimaa.renderer.initialize(canvas);
 	arimaa.renderer.loadImage(spriteFilePath, synchronize);
-	arimaa.interactions.initialize(canvas);
 </script>
