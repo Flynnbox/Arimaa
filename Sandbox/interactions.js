@@ -14,16 +14,17 @@ arimaa.interactions = (function() {
 			board = null,
 			piece = null,
 
-	initialize = function(canvasDomNode, boardSpecification, pieceSpecification){
+	initialize = function(canvasDomNode, boardSpecification){
 		canvas = canvasDomNode;
 		board = boardSpecification;
-		piece = pieceSpecification;
+		piece = board.piece;
 		canvas.addEventListener("click", boardOnClick, false);
 	},
 
-	Square = function (row, column) {
-		this.row = row;
-		this.column = column;
+	findSquare = function(canvasX, canvasY){
+		var x = Math.min(canvasX, board.width * piece.width),
+    		y = Math.min(canvasY, board.height * piece.height);
+    return new board.Square(Math.floor(y/piece.height), Math.floor(x/piece.width));
 	},
 
 	getCursorPosition = function (e) {
@@ -40,10 +41,7 @@ arimaa.interactions = (function() {
     }
     x -= canvas.offsetLeft;
     y -= canvas.offsetTop;
-    x = Math.min(x, board.width * piece.width);
-    y = Math.min(y, board.height * piece.height);
-    var square = new Square(Math.floor(y/piece.height), Math.floor(x/piece.width));
-    return square;
+    return findSquare(x, y);
 	},
 
 	boardOnClick = function(e) {

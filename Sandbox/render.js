@@ -13,6 +13,8 @@ arimaa.renderer = (function() {
 	var canvas = null,
 			context = null,
 			spriteProvider = null,
+			board = null,
+			selectedSquareColor = 'rgba(0, 0, 200, 0.5)',
 
 	initialize = function(canvasDomNode, spriteImage){
 		canvas = canvasDomNode;
@@ -20,12 +22,12 @@ arimaa.renderer = (function() {
 		spriteProvider = createSpriteProvider(spriteImage);
 	},
 
-	clearBoard = function (context, board){
+	clearBoard = function (context){
 		context.clearRect(board.x, board.y, board.width, board.height);
 	},
 
-	drawBoard = function (context, board){
-		clearBoard(context, board);
+	drawBoard = function (context){
+		clearBoard(context);
 		context.beginPath();
 
 		//vertical lines
@@ -40,17 +42,23 @@ arimaa.renderer = (function() {
 			context.lineTo(board.height, 0.5 + y);
 		}
 
+		//ink Paths
+		context.strokeStyle = "#ccc";
+    context.stroke();
+
 		//trap squares
 		for(var t = 0; t < board.traps.length; t++){
-			var trap = board.traps[t],
-					startX = (board.piece.width * trap.x) + 0.5,
-					startY = (board.piece.height * trap.y) + 0.5;
-			context.fillRect(startX, startY, board.piece.width, board.piece.height);
+			var trap = board.traps[t];
+			colorSquare(trap, '#000000');
 		}
+	},
 
-		//ink Paths
-    context.strokeStyle = "#ccc";
-    context.stroke();
+	colorSquare = function(square, hexColor){
+		var startX = (board.piece.width * square.column) + 0.5,
+				startY = (board.piece.height * square.row) + 0.5;
+		
+		context.fillStyle = hexColor;
+		context.fillRect(startX, startY, board.piece.width, board.piece.height);
 	},
 
 	createSpriteProvider = function(image){
@@ -89,17 +97,22 @@ arimaa.renderer = (function() {
 
 	drawSprite = function (color, name, x, y){
 		var sprite = spriteProvider.getSprite(color, name);
-		//arimaa.log(sprite);
 		context.drawImage(spriteProvider.image, sprite.x, sprite.y, sprite.width, sprite.height, x, y, sprite.width, sprite.height);
 	},
 
-	render = function (board){
-		if(typeof(board) == "undefined" || board === null){
+	highlightSquare = function(square){
+		colorSquare(square, selectedSquareColor);
+	},
+
+	render = function (boardSpec){
+		if(typeof(boardSpec) == "undefined" || boardSpec === null){
 			arimaa.log("board is not defined.");
 			return;
 		}
 
-		drawBoard(context, board);
+		board = boardSpec;
+
+		drawBoard(context);
 
 		//draw gold sprites
 		drawSprite("gold", "elephant", 2.5, 2.5);
@@ -120,12 +133,8 @@ arimaa.renderer = (function() {
 
 	return {
 		initialize: initialize,
-		clearBoard: clearBoard,
-		drawBoard: drawBoard,
-		createSpriteProvider: createSpriteProvider,
-		defineSprite: defineSprite,
-		drawSprite: drawSprite,
-		render: render
+		render: render,
+		highlightSquare: highlightSquare
 	};
 
 }());

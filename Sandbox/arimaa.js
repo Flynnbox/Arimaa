@@ -17,7 +17,7 @@ arimaa = (function(){
 		return typeof(console) !== "undefined" && typeof(console.log) !== "undefined";
 	},
 
-	//wrap and hide how a function from third party lib so that alternate libraries could be used in future
+	//wrap a function from third party lib so that it can be swapped out for alternate libs in future with minimal impact
 	wrapFunction = function(functionToHide){
 		return function(){
 			var args = Array.prototype.slice.call(arguments);

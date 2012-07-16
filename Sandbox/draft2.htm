@@ -22,11 +22,12 @@
 	function synchronize(image){
 		arimaa.renderer.initialize(canvas, image);
 		arimaa.renderer.render(arimaa.boardState.boardSpecification);
-		arimaa.interactions.initialize(canvas, arimaa.boardState.boardSpecification, arimaa.boardState.pieceSpecification);
+		arimaa.interactions.initialize(canvas, arimaa.boardState.boardSpecification);
 	}
 
-	arimaa.on('boardClick', function(square){		
+	arimaa.on('boardClick', function(square){
 		console.log("clicked on column " + square.column + " and row " + square.row);
+		arimaa.renderer.highlightSquare(square);
 	});
 
 	arimaa.imageLoader.load(spriteFilePath, synchronize);

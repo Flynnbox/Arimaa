@@ -13,6 +13,11 @@ arimaa.boardState = (function() {
 	var standardPlayingPiece = {"width": 50, "height": 50},
 			board = null,
 
+	Square = function (row, column) {
+		this.row = row;
+		this.column = column;
+	},
+
 	defineBoard = function(startX, startY, pieceTemplate){
 		var columns = 8;
 		var rows = 8;
@@ -22,14 +27,14 @@ arimaa.boardState = (function() {
 			"piece": pieceTemplate,
 			"width": 1 + (columns * pieceTemplate.width), 
 			"height": 1 + (rows * pieceTemplate.height),
-			"traps": [{"x": 2, "y": 2}, {"x": 2, "y": 5}, {"x": 5, "y": 2}, {"x": 5, "y": 5}]
+			"traps": [new Square(2, 2), new Square(2, 5), new Square(5, 2), new Square(5, 5)],
+			"Square": Square
 		};
-	};
+	},
 
 	board = defineBoard(0, 0, standardPlayingPiece);
 
 	return {
-		boardSpecification: board,
-		pieceSpecification: standardPlayingPiece
+		boardSpecification: board
 	};
 }());
