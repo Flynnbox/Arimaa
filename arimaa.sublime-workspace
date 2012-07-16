@@ -11,7 +11,7 @@
 			"file": "Sandbox/draft2.htm",
 			"settings":
 			{
-				"buffer_size": 2137,
+				"buffer_size": 1051,
 				"line_ending": "Windows"
 			}
 		},
@@ -27,7 +27,7 @@
 			"file": "Sandbox/boardState.js",
 			"settings":
 			{
-				"buffer_size": 720,
+				"buffer_size": 796,
 				"line_ending": "Windows"
 			}
 		},
@@ -43,7 +43,7 @@
 			"file": "Sandbox/render.js",
 			"settings":
 			{
-				"buffer_size": 2481,
+				"buffer_size": 3613,
 				"line_ending": "Windows"
 			}
 		},
@@ -51,7 +51,7 @@
 			"file": "Sandbox/interactions.js",
 			"settings":
 			{
-				"buffer_size": 1615,
+				"buffer_size": 1689,
 				"line_ending": "Windows"
 			}
 		}
@@ -126,7 +126,7 @@
 					"file": "Sandbox/draft2.htm",
 					"settings":
 					{
-						"buffer_size": 2137,
+						"buffer_size": 1051,
 						"regions":
 						{
 						},
@@ -180,7 +180,7 @@
 					"file": "Sandbox/boardState.js",
 					"settings":
 					{
-						"buffer_size": 720,
+						"buffer_size": 796,
 						"regions":
 						{
 						},
@@ -233,7 +233,7 @@
 					"file": "Sandbox/render.js",
 					"settings":
 					{
-						"buffer_size": 2481,
+						"buffer_size": 3613,
 						"regions":
 						{
 						},
@@ -260,7 +260,7 @@
 					"file": "Sandbox/interactions.js",
 					"settings":
 					{
-						"buffer_size": 1615,
+						"buffer_size": 1689,
 						"regions":
 						{
 						},

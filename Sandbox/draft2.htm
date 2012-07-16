@@ -1,10 +1,12 @@
 <html>
 <head>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js"></script> -->
+	<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js"></script> -->
+	<script type="text/javascript" src="../scripts/lucid.js"></script>
 	<script type="text/javascript" src="arimaa.js"></script>
 	<script type="text/javascript" src="boardState.js"></script>
 	<script type="text/javascript" src="render.js"></script>
+	<script type="text/javascript" src="imageLoader.js"></script>
 	<script type="text/javascript" src="interactions.js"></script>
 </head>
 <body>
@@ -15,7 +17,7 @@
 "use strict";
 
 	var canvas = document.getElementById("sandbox"),
-			spriteFilePath = "arimaa_50x50.jpg";
+			spriteFilePath = "arimaa_50x50.jpg"
 	
 	function synchronize(image){
 		arimaa.renderer.initialize(canvas, image);
@@ -23,5 +25,9 @@
 		arimaa.interactions.initialize(canvas, arimaa.boardState.boardSpecification, arimaa.boardState.pieceSpecification);
 	}
 
-	arimaa.renderer.loadImage(spriteFilePath, synchronize);
+	arimaa.on('boardClick', function(square){		
+		console.log("clicked on column " + square.column + " and row " + square.row);
+	});
+
+	arimaa.imageLoader.load(spriteFilePath, synchronize);
 </script>

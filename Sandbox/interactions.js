@@ -22,8 +22,8 @@ arimaa.interactions = (function() {
 	},
 
 	Square = function (row, column) {
-	   this.row = row;
-	   this.column = column;
+		this.row = row;
+		this.column = column;
 	},
 
 	getCursorPosition = function (e) {
@@ -47,16 +47,8 @@ arimaa.interactions = (function() {
 	},
 
 	boardOnClick = function(e) {
-	    var square = getCursorPosition(e);
-	    console.log("clicked on column " + square.column + " and row " + square.row);
-	   //  for (var i = 0; i < gNumPieces; i++) {
-				// if ((gPieces[i].row == cell.row) && 
-				//     (gPieces[i].column == cell.column)) {
-				//     clickOnPiece(i);
-				//     return;
-				// }
-	   //  }
-	    //clickOnEmptyCell(cell);
+    var square = getCursorPosition(e);	    
+    arimaa.trigger('boardClick', square);
 	};
 
 	return{

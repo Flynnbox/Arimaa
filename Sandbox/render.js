@@ -14,16 +14,6 @@ arimaa.renderer = (function() {
 			context = null,
 			spriteProvider = null,
 
-	loadImage = function (imageFilePath, success){
-		var img = new Image();
-		img.onload = function(){
-				if(success !== null) {
-					success(img);
-				}
-			};
-		img.src = imageFilePath;
-	},
-
 	initialize = function(canvasDomNode, spriteImage){
 		canvas = canvasDomNode;
 		context = canvas.getContext("2d");
@@ -135,8 +125,7 @@ arimaa.renderer = (function() {
 		createSpriteProvider: createSpriteProvider,
 		defineSprite: defineSprite,
 		drawSprite: drawSprite,
-		loadImage: loadImage,
 		render: render
 	};
 
-}())
+}());
