@@ -1,3 +1,25 @@
+function Square (row, column) {
+	this.row = row;
+	this.column = column;
+};
+
+function defineBoard(playingPieceDimensions){
+	var columns = 8;
+	var rows = 8;
+	return {
+		"rows": rows,
+		"columns": columns,
+		"pieceSpec": playingPieceDimensions,
+		"width": 1 + (columns * playingPieceDimensions.width), 
+		"height": 1 + (rows * playingPieceDimensions.height),
+		"traps": [new Square(2, 2), new Square(2, 5), new Square(5, 2), new Square(5, 5)],
+		"Square": Square
+	};
+};
+
+var playingPieceDimensions = {"width": 50, "height": 50},
+		arimaaBoard = defineBoard(playingPieceDimensions);
+
 if (typeof(arimaa) === 'undefined') {
     var arimaa = {};
     alert('requires arimaa.js');
@@ -7,34 +29,42 @@ if (typeof(arimaa.boardState) === 'undefined') {
     arimaa.boardState = {};
 }
 
-arimaa.boardState = (function() {
+arimaa.boardState = (function(boardSpec) {
 	"use strict";
 
-	var standardPlayingPiece = {"width": 50, "height": 50},
-			board = null,
+	var board = boardSpec,
+			currentState = [],
+			draftState = [],
 
-	Square = function (row, column) {
-		this.row = row;
-		this.column = column;
+	isOccupied = function(square){
+
 	},
 
-	defineBoard = function(startX, startY, pieceTemplate){
-		var columns = 8;
-		var rows = 8;
-		return {
-			"x":startX, 
-			"y":startY, 
-			"piece": pieceTemplate,
-			"width": 1 + (columns * pieceTemplate.width), 
-			"height": 1 + (rows * pieceTemplate.height),
-			"traps": [new Square(2, 2), new Square(2, 5), new Square(5, 2), new Square(5, 5)],
-			"Square": Square
-		};
+	isGoalSquare = function(square, color){
+
 	},
 
-	board = defineBoard(0, 0, standardPlayingPiece);
+	isSetupSquare = function(square, color){
+
+	},
+
+	isTrap = function(square){
+
+	},
+
+	getPiece = function(square){
+
+	},
+
+	updateDraftState = function(){
+		//respond to interactions events to update piece positions
+	},
+
+	updateCurrentState = function(){
+		//respond to rulesEngine events to update piece positions
+	};
 
 	return {
 		boardSpecification: board
 	};
-}());
+}(arimaaBoard));

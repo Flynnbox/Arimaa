@@ -14,7 +14,14 @@ arimaa.renderer = (function() {
 			context = null,
 			spriteProvider = null,
 			board = null,
-			selectedSquareColor = 'rgba(0, 0, 200, 0.5)',
+			styleSpec = {
+				'colorBorder': '',
+				'colorLine': '',
+				'colorSquare': '',
+				'colorSquareTrap': '#000000',
+				'colorSquareSelected': 'rgba(0, 0, 200, 0.5)',
+			},
+			
 
 	initialize = function(canvasDomNode, spriteImage){
 		canvas = canvasDomNode;
@@ -31,34 +38,34 @@ arimaa.renderer = (function() {
 		context.beginPath();
 
 		//vertical lines
-		for (var x = 0; x <= board.width; x += board.piece.width){
+		for (var x = 0; x <= board.width; x += board.pieceSpec.width){
 			context.moveTo(0.5 + x, 0);
 			context.lineTo(0.5 + x, board.width);
 		}
 
 		//horizontal lines
-		for (var y = 0; y <= board.height; y += board.piece.height){
+		for (var y = 0; y <= board.height; y += board.pieceSpec.height){
 			context.moveTo(0, 0.5 + y);
 			context.lineTo(board.height, 0.5 + y);
 		}
 
 		//ink Paths
-		context.strokeStyle = "#ccc";
+		context.strokeStyle = styleSpec.colorLine;
     context.stroke();
 
 		//trap squares
 		for(var t = 0; t < board.traps.length; t++){
 			var trap = board.traps[t];
-			colorSquare(trap, '#000000');
+			colorSquare(trap, styleSpec.colorSquareTrap);
 		}
 	},
 
 	colorSquare = function(square, hexColor){
-		var startX = (board.piece.width * square.column) + 0.5,
-				startY = (board.piece.height * square.row) + 0.5;
+		var startX = (board.pieceSpec.width * square.column) + 0.5,
+				startY = (board.pieceSpec.height * square.row) + 0.5;
 		
 		context.fillStyle = hexColor;
-		context.fillRect(startX, startY, board.piece.width, board.piece.height);
+		context.fillRect(startX, startY, board.pieceSpec.width, board.pieceSpec.height);
 	},
 
 	createSpriteProvider = function(image){
@@ -101,7 +108,7 @@ arimaa.renderer = (function() {
 	},
 
 	highlightSquare = function(square){
-		colorSquare(square, selectedSquareColor);
+		colorSquare(square, styleSpec.colorSquareSelected);
 	},
 
 	render = function (boardSpec){

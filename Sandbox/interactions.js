@@ -12,19 +12,19 @@ arimaa.interactions = (function() {
 
 	var canvas = null,
 			board = null,
-			piece = null,
+			pieceSpec = null,
 
 	initialize = function(canvasDomNode, boardSpecification){
 		canvas = canvasDomNode;
 		board = boardSpecification;
-		piece = board.piece;
+		pieceSpec = board.pieceSpec;
 		canvas.addEventListener("click", boardOnClick, false);
 	},
 
 	findSquare = function(canvasX, canvasY){
-		var x = Math.min(canvasX, board.width * piece.width),
-    		y = Math.min(canvasY, board.height * piece.height);
-    return new board.Square(Math.floor(y/piece.height), Math.floor(x/piece.width));
+		var x = Math.min(canvasX, board.width * pieceSpec.width),
+    		y = Math.min(canvasY, board.height * pieceSpec.height);
+    return new board.Square(Math.floor(y/pieceSpec.height), Math.floor(x/pieceSpec.width));
 	},
 
 	getCursorPosition = function (e) {
