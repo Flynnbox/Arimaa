@@ -1,25 +1,3 @@
-function Square (row, column) {
-	this.row = row;
-	this.column = column;
-};
-
-function defineBoard(playingPieceDimensions){
-	var columns = 8;
-	var rows = 8;
-	return {
-		"rows": rows,
-		"columns": columns,
-		"pieceSpec": playingPieceDimensions,
-		"width": 1 + (columns * playingPieceDimensions.width), 
-		"height": 1 + (rows * playingPieceDimensions.height),
-		"traps": [new Square(2, 2), new Square(2, 5), new Square(5, 2), new Square(5, 5)],
-		"Square": Square
-	};
-};
-
-var playingPieceDimensions = {"width": 50, "height": 50},
-		arimaaBoard = defineBoard(playingPieceDimensions);
-
 if (typeof(arimaa) === 'undefined') {
     var arimaa = {};
     alert('requires arimaa.js');
@@ -29,12 +7,16 @@ if (typeof(arimaa.boardState) === 'undefined') {
     arimaa.boardState = {};
 }
 
-arimaa.boardState = (function(boardSpec) {
+arimaa.boardState = (function() {
 	"use strict";
 
-	var board = boardSpec,
+	var board = null,
 			currentState = [],
 			draftState = [],
+
+	initialize = function(arimaaBoard){
+		board = arimaaBoard;
+	},
 
 	isOccupied = function(square){
 
@@ -65,6 +47,6 @@ arimaa.boardState = (function(boardSpec) {
 	};
 
 	return {
-		boardSpecification: board
+		initialize: initialize
 	};
-}(arimaaBoard));
+}());
