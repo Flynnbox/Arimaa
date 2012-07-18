@@ -17,7 +17,7 @@ arimaa.canvasRenderer = function(canvasDomNode, spriteSpecification, boardSpecif
 			styleSpec = styleSpecification,
 	
 	clearBoard = function (context){
-		context.clearRect(board.x, board.y, board.width, board.height);
+		context.clearRect(styleSpec.x, styleSpec.y, styleSpec.width, styleSpec.height);
 	},
 
 	drawBoard = function (context){
@@ -25,15 +25,15 @@ arimaa.canvasRenderer = function(canvasDomNode, spriteSpecification, boardSpecif
 		context.beginPath();
 
 		//vertical lines
-		for (var x = 0; x <= board.width; x += board.pieceSpec.width){
+		for (var x = 0; x <= styleSpec.width; x += styleSpec.pieceSpec.width){
 			context.moveTo(0.5 + x, 0);
-			context.lineTo(0.5 + x, board.width);
+			context.lineTo(0.5 + x, styleSpec.width);
 		}
 
 		//horizontal lines
-		for (var y = 0; y <= board.height; y += board.pieceSpec.height){
+		for (var y = 0; y <= styleSpec.height; y += styleSpec.pieceSpec.height){
 			context.moveTo(0, 0.5 + y);
-			context.lineTo(board.height, 0.5 + y);
+			context.lineTo(styleSpec.height, 0.5 + y);
 		}
 
 		//ink Paths
@@ -48,11 +48,11 @@ arimaa.canvasRenderer = function(canvasDomNode, spriteSpecification, boardSpecif
 	},
 
 	colorSquare = function(square, hexColor){
-		var startX = (board.pieceSpec.width * square.column) + 0.5,
-				startY = (board.pieceSpec.height * square.row) + 0.5;
+		var startX = (styleSpec.pieceSpec.width * square.column) + 0.5,
+				startY = (styleSpec.pieceSpec.height * square.row) + 0.5;
 		
 		context.fillStyle = hexColor;
-		context.fillRect(startX, startY, board.pieceSpec.width, board.pieceSpec.height);
+		context.fillRect(startX, startY, styleSpec.pieceSpec.width, styleSpec.pieceSpec.height);
 	},
 
 	drawSprite = function (color, name, x, y){

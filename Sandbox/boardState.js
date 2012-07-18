@@ -7,16 +7,12 @@ if (typeof(arimaa.boardState) === 'undefined') {
     arimaa.boardState = {};
 }
 
-arimaa.boardState = (function() {
+arimaa.boardState = function(newBoard) {
 	"use strict";
 
-	var board = null,
+	var board = newBoard,
 			currentState = [],
 			draftState = [],
-
-	initialize = function(arimaaBoard){
-		board = arimaaBoard;
-	},
 
 	isOccupied = function(square){
 
@@ -47,6 +43,6 @@ arimaa.boardState = (function() {
 	};
 
 	return {
-		initialize: initialize
+		
 	};
-}());
+}
