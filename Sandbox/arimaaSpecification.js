@@ -14,10 +14,14 @@ arimaa.specification = function(){
 	var
 
 	defineBoard = function(columns, rows, trapSquares){
+		var traps = trapSquares;
+		if (typeof(traps) === 'undefined' || traps === null){
+			traps = [];
+		}
 		return {
 			"rows": rows,
 			"columns": columns,
-			"traps": trapSquares
+			"traps": traps
 		};
 	},
 
