@@ -1,3 +1,5 @@
+//acts as a view for rendering the board onto a canvas dom node
+
 if (typeof(arimaa) === 'undefined') {
     var arimaa = {};
     alert('requires arimaa.js');
@@ -27,13 +29,13 @@ arimaa.canvasRenderer = function(canvasDomNode, spriteSpecification, boardSpecif
 		//vertical lines
 		for (var x = 0; x <= style.board.width; x += style.piece.width){
 			context.moveTo(0.5 + x, 0);
-			context.lineTo(0.5 + x, style.board.width);
+			context.lineTo(0.5 + x, style.board.height);
 		}
 
 		//horizontal lines
 		for (var y = 0; y <= style.board.height; y += style.piece.height){
 			context.moveTo(0, 0.5 + y);
-			context.lineTo(style.board.height, 0.5 + y);
+			context.lineTo(style.board.width, 0.5 + y);
 		}
 
 		//ink Paths

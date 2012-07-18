@@ -1,3 +1,5 @@
+//acts as a weak controller to throw events based on ui actions
+
 if (typeof(arimaa) === 'undefined') {
     var arimaa = {};
     alert('requires arimaa.js');
@@ -20,6 +22,7 @@ arimaa.interactions = (function() {
 	},
 
 	findSquare = function(canvasX, canvasY){
+		//arimaa.log("interactions::findSquare:: canvasX " + canvasX + " canvasY " + canvasY);
 		var x = Math.min(canvasX, style.board.width * style.piece.width),
     		y = Math.min(canvasY, style.board.height * style.piece.height);
     return new Square(Math.floor(x/style.piece.width), Math.floor(y/style.piece.height));

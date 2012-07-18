@@ -1,3 +1,5 @@
+//represents the Model of the current state of the board and all pieces
+
 if (typeof(arimaa) === 'undefined') {
     var arimaa = {};
     alert('requires arimaa.js');

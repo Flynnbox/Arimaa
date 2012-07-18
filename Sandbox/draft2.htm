@@ -20,17 +20,18 @@
 
 	var canvas = document.getElementById("sandbox"),
 			spriteFilePath = "arimaa_50x50.jpg",
-			canvasRenderer = null;
+			canvasRenderer = null,
+			arimaaBoardState = null;
 	
 	function synchronize(image){
-		var arimaaBoardState = new arimaa.boardState(arimaaBoardSpecification);
+		arimaaBoardState = new arimaa.boardState(arimaaBoardSpecification);
 		canvasRenderer = new arimaa.canvasRenderer(canvas, createSpriteProvider(image), arimaaBoardSpecification, arimaaGameStyle);
 		canvasRenderer.render();
 		arimaa.interactions.initialize(canvas, arimaaGameStyle);
 	}
 
 	arimaa.on('boardClick', function(square){
-		console.log("clicked on column " + square.column + " and row " + square.row);
+		arimaa.log("clicked on column " + square.column + " and row " + square.row);
 		canvasRenderer.highlightSquare(square);
 	});
 
