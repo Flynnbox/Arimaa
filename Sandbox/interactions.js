@@ -1,7 +1,6 @@
 //acts as a weak controller to throw events based on ui actions
 
 if (typeof(arimaa) === 'undefined') {
-    var arimaa = {};
     alert('requires arimaa.js');
 }
 

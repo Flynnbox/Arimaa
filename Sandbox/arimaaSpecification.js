@@ -1,80 +1,100 @@
-function defineBoard(columns, rows, trapSquares){
-	return {
-		"rows": rows,
-		"columns": columns,
-		"traps": trapSquares
-	};
+//represents configuration information used by other modules
+
+if (typeof(arimaa) === 'undefined') {
+    alert('requires arimaa.js');
 }
 
-function defineBoardStyle(x, y, boardSpecification, playingPieceDimensions){
-	return {
-		"x": x,
-		"y": y,
-		"width": 1 + (boardSpecification.columns * playingPieceDimensions.width), 
-		"height": 1 + (boardSpecification.rows * playingPieceDimensions.height),
-		'borderColor': '',
-		'lineColor': '',
-		'squareColor': '',
-		'trapSquareColor': '#000000',
-		'selectedSquareColor': 'rgba(0, 0, 200, 0.5)'
-	};
+if (typeof(arimaa.specification) === 'undefined') {
+    arimaa.specification = {};
 }
 
-function definePieceStyle(width, height){
-	return {
-		"width": width, 
-		"height": height
-	}
-}
+arimaa.specification = function(){
+	"use strict";
 
-function defineGameStyle(boardStyle, pieceStyle){
-	return {
-		"board": boardStyle,
-		"piece": pieceStyle
-	}
-}
+	var
+	
+	defineBoard = function(columns, rows, trapSquares){
+		return {
+			"rows": rows,
+			"columns": columns,
+			"traps": trapSquares
+		};
+	},
 
-function defineSprite(x, y, width, height){
-	return {
-		"x": x,
-		"y": y,
-		"width": width,
-		"height": height
-	};
-}
+	defineBoardStyle = function(x, y, boardSpecification, playingPieceDimensions){
+		return {
+			"x": x,
+			"y": y,
+			"width": 1 + (boardSpecification.columns * playingPieceDimensions.width), 
+			"height": 1 + (boardSpecification.rows * playingPieceDimensions.height),
+			'borderColor': '',
+			'lineColor': '',
+			'squareColor': '',
+			'trapSquareColor': '#000000',
+			'selectedSquareColor': 'rgba(0, 0, 200, 0.5)'
+		};
+	},
 
-function createSpriteProvider(image){
-	return {
-		"image": image,
-		"gold": {
-			"elephant": defineSprite(3, 151, 46, 46),
-			"camel": defineSprite(51, 3, 47, 47),
-			"horse": defineSprite(50, 202, 47, 46),
-			"dog": defineSprite(51, 103, 46, 46),
-			"cat": defineSprite(3, 51, 46, 46),
-			"rabbit": defineSprite(2, 250, 46, 46)
-		},
-		"silver": {				
-			"elephant": defineSprite(100, 151, 46, 46),
-			"camel": defineSprite(148, 3, 47, 47),
-			"horse": defineSprite(147, 202, 47, 46),
-			"dog": defineSprite(148, 103, 46, 46),
-			"cat": defineSprite(100, 51, 46, 46),
-			"rabbit": defineSprite(99, 250, 46, 46)
-		},
-		getSprite: function(color, pieceName){
-			if (!this.hasOwnProperty(color)){
-				throw "createSpriteProvider::getSprite:: Unrecognized color: " + color;
-			}
-			if (!this[color].hasOwnProperty(pieceName)){
-				throw "createSpriteProvider::getSprite:: Unrecognized piece name: " + pieceName;
-			}
-			return this[color][pieceName];
+	definePieceStyle = function(width, height){
+		return {
+			"width": width, 
+			"height": height
 		}
-	};
-}
+	},
 
-var arimaaBoardSpecification = defineBoard(8, 8, [new Square(2, 2), new Square(5, 2), new Square(2, 5), new Square(5, 5)]),
-		arimaaPieceStyle = definePieceStyle(50, 50),
-		arimaaBoardStyle = defineBoardStyle(0, 0, arimaaBoardSpecification, arimaaPieceStyle),
-		arimaaGameStyle = defineGameStyle(arimaaBoardStyle, arimaaPieceStyle);
+	defineGameStyle = function(boardStyle, pieceStyle){
+		return {
+			"board": boardStyle,
+			"piece": pieceStyle
+		}
+	},
+
+	defineSprite = function(x, y, width, height){
+		return {
+			"x": x,
+			"y": y,
+			"width": width,
+			"height": height
+		};
+	},
+
+	createSpriteProvider = function (image){
+		return {
+			"image": image,
+			"gold": {
+				"elephant": defineSprite(3, 151, 46, 46),
+				"camel": defineSprite(51, 3, 47, 47),
+				"horse": defineSprite(50, 202, 47, 46),
+				"dog": defineSprite(51, 103, 46, 46),
+				"cat": defineSprite(3, 51, 46, 46),
+				"rabbit": defineSprite(2, 250, 46, 46)
+			},
+			"silver": {				
+				"elephant": defineSprite(100, 151, 46, 46),
+				"camel": defineSprite(148, 3, 47, 47),
+				"horse": defineSprite(147, 202, 47, 46),
+				"dog": defineSprite(148, 103, 46, 46),
+				"cat": defineSprite(100, 51, 46, 46),
+				"rabbit": defineSprite(99, 250, 46, 46)
+			},
+			getSprite: function(color, pieceName){
+				if (!this.hasOwnProperty(color)){
+					throw "specification::createSpriteProvider::getSprite:: Unrecognized color: " + color;
+				}
+				if (!this[color].hasOwnProperty(pieceName)){
+					throw "specification::createSpriteProvider::getSprite:: Unrecognized piece name: " + pieceName;
+				}
+				return this[color][pieceName];
+			}
+		};
+	}
+
+	return {
+		defineBoard: defineBoard,
+		defineBoardStyle: defineBoardStyle,
+		definePieceStyle: definePieceStyle,
+		defineGameStyle: defineGameStyle,
+		defineSprite: defineSprite,
+		createSpriteProvider: createSpriteProvider
+	}
+};

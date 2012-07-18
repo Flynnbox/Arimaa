@@ -1,7 +1,6 @@
 //acts as a view for rendering the board onto a canvas dom node
 
 if (typeof(arimaa) === 'undefined') {
-    var arimaa = {};
     alert('requires arimaa.js');
 }
 
