@@ -14,10 +14,10 @@ arimaa.canvasRenderer = function(canvasDomNode, spriteSpecification, boardSpecif
 			context = canvas.getContext("2d"),
 			spriteProvider = spriteSpecification,
 			board = boardSpecification,
-			styleSpec = styleSpecification,
+			style = styleSpecification,
 	
 	clearBoard = function (context){
-		context.clearRect(styleSpec.x, styleSpec.y, styleSpec.width, styleSpec.height);
+		context.clearRect(style.board.x, style.board.y, style.board.width, style.board.height);
 	},
 
 	drawBoard = function (context){
@@ -25,34 +25,34 @@ arimaa.canvasRenderer = function(canvasDomNode, spriteSpecification, boardSpecif
 		context.beginPath();
 
 		//vertical lines
-		for (var x = 0; x <= styleSpec.width; x += styleSpec.pieceSpec.width){
+		for (var x = 0; x <= style.board.width; x += style.piece.width){
 			context.moveTo(0.5 + x, 0);
-			context.lineTo(0.5 + x, styleSpec.width);
+			context.lineTo(0.5 + x, style.board.width);
 		}
 
 		//horizontal lines
-		for (var y = 0; y <= styleSpec.height; y += styleSpec.pieceSpec.height){
+		for (var y = 0; y <= style.board.height; y += style.piece.height){
 			context.moveTo(0, 0.5 + y);
-			context.lineTo(styleSpec.height, 0.5 + y);
+			context.lineTo(style.board.height, 0.5 + y);
 		}
 
 		//ink Paths
-		context.strokeStyle = styleSpec.lineColor;
+		context.strokeStyle = style.board.lineColor;
     context.stroke();
 
 		//trap squares
 		for(var t = 0; t < board.traps.length; t++){
 			var trap = board.traps[t];
-			colorSquare(trap, styleSpec.trapSquareColor);
+			colorSquare(trap, style.board.trapSquareColor);
 		}
 	},
 
 	colorSquare = function(square, hexColor){
-		var startX = (styleSpec.pieceSpec.width * square.column) + 0.5,
-				startY = (styleSpec.pieceSpec.height * square.row) + 0.5;
+		var startX = (style.piece.width * square.column) + 0.5,
+				startY = (style.piece.height * square.row) + 0.5;
 		
 		context.fillStyle = hexColor;
-		context.fillRect(startX, startY, styleSpec.pieceSpec.width, styleSpec.pieceSpec.height);
+		context.fillRect(startX, startY, style.piece.width, style.piece.height);
 	},
 
 	drawSprite = function (color, name, x, y){
@@ -61,7 +61,7 @@ arimaa.canvasRenderer = function(canvasDomNode, spriteSpecification, boardSpecif
 	},
 
 	highlightSquare = function(square){
-		colorSquare(square, styleSpec.selectedSquareColor);
+		colorSquare(square, style.board.selectedSquareColor);
 	},
 
 	render = function (){

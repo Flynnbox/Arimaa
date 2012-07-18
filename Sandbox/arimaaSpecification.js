@@ -16,9 +16,22 @@ function defineBoardStyle(x, y, boardSpecification, playingPieceDimensions){
 		'lineColor': '',
 		'squareColor': '',
 		'trapSquareColor': '#000000',
-		'selectedSquareColor': 'rgba(0, 0, 200, 0.5)',		
-		"pieceSpec": playingPieceDimensions
+		'selectedSquareColor': 'rgba(0, 0, 200, 0.5)'
 	};
+}
+
+function definePieceStyle(width, height){
+	return {
+		"width": width, 
+		"height": height
+	}
+}
+
+function defineGameStyle(boardStyle, pieceStyle){
+	return {
+		"board": boardStyle,
+		"piece": pieceStyle
+	}
 }
 
 function defineSprite(x, y, width, height){
@@ -61,6 +74,7 @@ function createSpriteProvider(image){
 	};
 }
 
-var arimaaPieceStyle = {"width": 50, "height": 50},
-		arimaaBoardSpecification = defineBoard(8, 8, arimaaPieceStyle, [new Square(2, 2), new Square(5, 2), new Square(2, 5), new Square(5, 5)]),
-		arimaaBoardStyle = defineBoardStyle(0, 0, arimaaBoardSpecification, arimaaPieceStyle);
+var arimaaBoardSpecification = defineBoard(8, 8, [new Square(2, 2), new Square(5, 2), new Square(2, 5), new Square(5, 5)]),
+		arimaaPieceStyle = definePieceStyle(50, 50),
+		arimaaBoardStyle = defineBoardStyle(0, 0, arimaaBoardSpecification, arimaaPieceStyle),
+		arimaaGameStyle = defineGameStyle(arimaaBoardStyle, arimaaPieceStyle);

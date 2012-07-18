@@ -24,9 +24,9 @@
 	
 	function synchronize(image){
 		var arimaaBoardState = new arimaa.boardState(arimaaBoardSpecification);
-		canvasRenderer = new arimaa.canvasRenderer(canvas, createSpriteProvider(image), arimaaBoardSpecification, arimaaBoardStyle);
+		canvasRenderer = new arimaa.canvasRenderer(canvas, createSpriteProvider(image), arimaaBoardSpecification, arimaaGameStyle);
 		canvasRenderer.render();
-		arimaa.interactions.initialize(canvas, arimaaBoardStyle);
+		arimaa.interactions.initialize(canvas, arimaaGameStyle);
 	}
 
 	arimaa.on('boardClick', function(square){
