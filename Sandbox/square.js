@@ -1,4 +1,4 @@
-var Square = function(row, column) {
-	this.row = row;
+var Square = function(column, row) {
 	this.column = column;
+	this.row = row;
 };

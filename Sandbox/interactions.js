@@ -24,7 +24,7 @@ arimaa.interactions = (function() {
 	findSquare = function(canvasX, canvasY){
 		var x = Math.min(canvasX, board.width * pieceSpec.width),
     		y = Math.min(canvasY, board.height * pieceSpec.height);
-    return new board.Square(Math.floor(y/pieceSpec.height), Math.floor(x/pieceSpec.width));
+    return new Square(Math.floor(x/pieceSpec.width), Math.floor(y/pieceSpec.height));
 	},
 
 	getCursorPosition = function (e) {

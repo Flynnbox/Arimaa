@@ -3,23 +3,55 @@
 	{
 		"selected_items":
 		[
+			[
+				"in",
+				"initialize"
+			],
+			[
+				"ari",
+				"arimaaBoard"
+			],
+			[
+				"bo",
+				"boardState"
+			],
+			[
+				"board",
+				"boardSpecification"
+			],
+			[
+				"boar",
+				"boardSpecification"
+			],
+			[
+				"s",
+				"colorSquareSelected  (variable)"
+			],
+			[
+				"co",
+				"colorSquareTrap  (variable)"
+			],
+			[
+				"colo",
+				"colorSquare"
+			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "Sandbox/draft2.htm",
+			"file": "Sandbox/README",
 			"settings":
 			{
-				"buffer_size": 1051,
+				"buffer_size": 4901,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Sandbox/arimaa.js",
+			"file": "Sandbox/draft2.htm",
 			"settings":
 			{
-				"buffer_size": 402,
+				"buffer_size": 1437,
 				"line_ending": "Windows"
 			}
 		},
@@ -27,31 +59,31 @@
 			"file": "Sandbox/boardState.js",
 			"settings":
 			{
-				"buffer_size": 796,
+				"buffer_size": 797,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Sandbox/ruleEngine.js",
+			"file": "Sandbox/Tests/test-boardState.js",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 150,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Sandbox/render.js",
+			"file": "Sandbox/Tests/test1.htm",
 			"settings":
 			{
-				"buffer_size": 3613,
+				"buffer_size": 537,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Sandbox/interactions.js",
+			"file": "Sandbox/arimaaSpecification.js",
 			"settings":
 			{
-				"buffer_size": 1689,
+				"buffer_size": 1004,
 				"line_ending": "Windows"
 			}
 		}
@@ -80,6 +112,16 @@
 	},
 	"file_history":
 	[
+		"/C/Users/aflynn/Documents/GitHub/Arimaa/Sandbox/render.js",
+		"/C/Users/aflynn/Documents/GitHub/Arimaa/Sandbox/interactions.js",
+		"/C/Users/aflynn/Documents/GitHub/Arimaa/Sandbox/Tests/test1.htm",
+		"/C/Users/aflynn/Documents/GitHub/Arimaa/Sandbox/ruleEngine.js",
+		"/C/Users/aflynn/Documents/GitHub/Arimaa/Sandbox/arimaa.js",
+		"/C/Users/aflynn/Documents/GitHub/Arimaa/Sandbox/square.js",
+		"/C/Users/aflynn/Documents/GitHub/Arimaa/Sandbox/arimaaSpecification.js",
+		"/C/Users/aflynn/Documents/GitHub/Arimaa/Sandbox/draft2.htm",
+		"/C/Users/aflynn/Documents/GitHub/Arimaa/.gitignore",
+		"/C/Users/aflynn/Documents/GitHub/Arimaa/Sandbox/imageLoader.js",
 		"/C/Documents and Settings/admin/Application Data/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/C/Documents and Settings/admin/Application Data/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
 		"/C/Documents and Settings/admin/Application Data/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
@@ -87,13 +129,15 @@
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
 		"height": 0.0,
 		"where_history":
 		[
+			"C:\\Users\\aflynn\\Documents\\GitHub\\Arimaa",
+			"C:\\ihi_main\\trunk\\Database\\IHI\\ChangeScripts\\LMS"
 		]
 	},
 	"find_state":
@@ -101,6 +145,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"piece",
+			"msExplanations[(int)ae.InvalidMove.",
+			"createSpriteProvider",
+			"defineSprite",
+			"drawBoard",
+			"pieceSpecification"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -108,6 +158,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"pieceSpec",
+			""
 		],
 		"reverse": false,
 		"show_context": true,
@@ -118,23 +170,49 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 5,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "Sandbox/draft2.htm",
+					"file": "Sandbox/README",
 					"settings":
 					{
-						"buffer_size": 1051,
+						"buffer_size": 4901,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								2847,
+								2847
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 213.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Sandbox/draft2.htm",
+					"settings":
+					{
+						"buffer_size": 1437,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1196,
+								1196
 							]
 						],
 						"settings":
@@ -149,46 +227,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "Sandbox/arimaa.js",
-					"settings":
-					{
-						"buffer_size": 402,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
 					"buffer": 2,
 					"file": "Sandbox/boardState.js",
 					"settings":
 					{
-						"buffer_size": 796,
+						"buffer_size": 797,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								484,
+								484
 							]
 						],
 						"settings":
@@ -204,18 +255,18 @@
 				},
 				{
 					"buffer": 3,
-					"file": "Sandbox/ruleEngine.js",
+					"file": "Sandbox/Tests/test-boardState.js",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 150,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								52,
+								32
 							]
 						],
 						"settings":
@@ -230,24 +281,25 @@
 				},
 				{
 					"buffer": 4,
-					"file": "Sandbox/render.js",
+					"file": "Sandbox/Tests/test1.htm",
 					"settings":
 					{
-						"buffer_size": 3613,
+						"buffer_size": 537,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								392,
+								392
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -257,18 +309,18 @@
 				},
 				{
 					"buffer": 5,
-					"file": "Sandbox/interactions.js",
+					"file": "Sandbox/arimaaSpecification.js",
 					"settings":
 					{
-						"buffer_size": 1689,
+						"buffer_size": 1004,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1004,
+								1004
 							]
 						],
 						"settings":
@@ -317,7 +369,7 @@
 	"menu_visible": true,
 	"replace":
 	{
-		"height": 0.0
+		"height": 62.0
 	},
 	"save_all_on_build": true,
 	"select_file":
