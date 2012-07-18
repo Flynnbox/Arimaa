@@ -13,6 +13,67 @@ arimaa.specification = function(){
 
 	var
 
+	definePiece = function(color, id, type){
+		return {
+			"id": color + ':' + type + ':' + id,
+			"color": color,
+			"type": type
+		}
+	},
+
+	Elephant = function(color, id){
+		return definePiece(color, id, 'elephant');
+	},
+
+	Camel = function(color, id){
+		return definePiece(color, id, 'camel');
+	},
+
+	Horse = function(color, id){
+		return definePiece(color, id, 'horse');
+	},
+
+	Dog = function(color, id){
+		return definePiece(color, id, 'dog');
+	},
+
+	Cat = function(color, id){
+		return definePiece(color, id, 'cat');
+	},
+
+	Rabbit = function(color, id){
+		return definePiece(color, id, 'rabbit');
+	},
+
+	Team = function(teamColor, startingPieces){
+		var color = teamColor,
+				id = 0,
+				pieces = startingPieces;
+
+		if(typeof(pieces) === 'undefined' || pieces === null){
+			pieces = [];
+			pieces.push(new Elephant(color, id++));
+			pieces.push(new Camel(color, id++));
+			pieces.push(new Horse(color, id++));
+			pieces.push(new Horse(color, id++));
+			pieces.push(new Dog(color, id++));
+			pieces.push(new Dog(color, id++));
+			pieces.push(new Cat(color, id++));
+			pieces.push(new Cat(color, id++));
+			pieces.push(new Rabbit(color, id++));
+			pieces.push(new Rabbit(color, id++));
+			pieces.push(new Rabbit(color, id++));
+			pieces.push(new Rabbit(color, id++));
+			pieces.push(new Rabbit(color, id++));			
+			pieces.push(new Rabbit(color, id++));
+		}
+
+		return {
+			color: color,
+			pieces: pieces
+		}
+	},
+
 	defineBoard = function(columns, rows, trapSquares){
 		var traps = trapSquares;
 		if (typeof(traps) === 'undefined' || traps === null){
@@ -21,7 +82,9 @@ arimaa.specification = function(){
 		return {
 			"rows": rows,
 			"columns": columns,
-			"traps": traps
+			"traps": traps,
+			"goalRows": {"gold": 7, "silver": 0},
+			"setupRows": {"gold": [6,7], "silver": [0,1]}
 		};
 	},
 

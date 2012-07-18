@@ -4,6 +4,46 @@
 		"selected_items":
 		[
 			[
+				"tr",
+				"trapSquares"
+			],
+			[
+				"board",
+				"boardState"
+			],
+			[
+				"de",
+				"defineSprite"
+			],
+			[
+				"c",
+				"createSpriteProvider"
+			],
+			[
+				"b",
+				"board"
+			],
+			[
+				"a",
+				"arimaaPieceStyle"
+			],
+			[
+				"arim",
+				"arimaaBoardStyle"
+			],
+			[
+				"define",
+				"defineGameStyle"
+			],
+			[
+				"def",
+				"definePieceStyle"
+			],
+			[
+				"piec",
+				"pieceStyle"
+			],
+			[
 				"in",
 				"initialize"
 			],
@@ -14,10 +54,6 @@
 			[
 				"bo",
 				"boardState"
-			],
-			[
-				"board",
-				"boardSpecification"
 			],
 			[
 				"boar",
@@ -48,18 +84,10 @@
 			}
 		},
 		{
-			"file": "Sandbox/draft2.htm",
+			"file": "Sandbox/Tests/test1.htm",
 			"settings":
 			{
-				"buffer_size": 1437,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Sandbox/boardState.js",
-			"settings":
-			{
-				"buffer_size": 797,
+				"buffer_size": 752,
 				"line_ending": "Windows"
 			}
 		},
@@ -67,15 +95,39 @@
 			"file": "Sandbox/Tests/test-boardState.js",
 			"settings":
 			{
-				"buffer_size": 150,
+				"buffer_size": 995,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Sandbox/Tests/test1.htm",
+			"file": "Sandbox/boardState.js",
 			"settings":
 			{
-				"buffer_size": 537,
+				"buffer_size": 873,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Sandbox/draft2.htm",
+			"settings":
+			{
+				"buffer_size": 1999,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Sandbox/render.js",
+			"settings":
+			{
+				"buffer_size": 2726,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Sandbox/interactions.js",
+			"settings":
+			{
+				"buffer_size": 1498,
 				"line_ending": "Windows"
 			}
 		},
@@ -83,7 +135,15 @@
 			"file": "Sandbox/arimaaSpecification.js",
 			"settings":
 			{
-				"buffer_size": 1004,
+				"buffer_size": 2651,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Sandbox/arimaa.js",
+			"settings":
+			{
+				"buffer_size": 822,
 				"line_ending": "Windows"
 			}
 		}
@@ -112,12 +172,12 @@
 	},
 	"file_history":
 	[
-		"/C/Users/aflynn/Documents/GitHub/Arimaa/Sandbox/render.js",
-		"/C/Users/aflynn/Documents/GitHub/Arimaa/Sandbox/interactions.js",
-		"/C/Users/aflynn/Documents/GitHub/Arimaa/Sandbox/Tests/test1.htm",
-		"/C/Users/aflynn/Documents/GitHub/Arimaa/Sandbox/ruleEngine.js",
-		"/C/Users/aflynn/Documents/GitHub/Arimaa/Sandbox/arimaa.js",
 		"/C/Users/aflynn/Documents/GitHub/Arimaa/Sandbox/square.js",
+		"/C/Users/aflynn/Documents/GitHub/Arimaa/Sandbox/ruleEngine.js",
+		"/C/Users/aflynn/Documents/GitHub/Arimaa/Sandbox/interactions.js",
+		"/C/Users/aflynn/Documents/GitHub/Arimaa/Sandbox/render.js",
+		"/C/Users/aflynn/Documents/GitHub/Arimaa/Sandbox/Tests/test1.htm",
+		"/C/Users/aflynn/Documents/GitHub/Arimaa/Sandbox/arimaa.js",
 		"/C/Users/aflynn/Documents/GitHub/Arimaa/Sandbox/arimaaSpecification.js",
 		"/C/Users/aflynn/Documents/GitHub/Arimaa/Sandbox/draft2.htm",
 		"/C/Users/aflynn/Documents/GitHub/Arimaa/.gitignore",
@@ -133,7 +193,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 90.0,
 		"where_history":
 		[
 			"C:\\Users\\aflynn\\Documents\\GitHub\\Arimaa",
@@ -145,6 +205,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"pieceSpec",
+			"style.",
+			"styleSpec",
+			"board",
+			"pieceSpec",
+			"styleSpec",
+			"Square",
 			"piece",
 			"msExplanations[(int)ae.InvalidMove.",
 			"createSpriteProvider",
@@ -158,19 +225,24 @@
 		"regex": false,
 		"replace_history":
 		[
+			"piece",
+			"style.board.",
+			"style",
+			"pieceSpec",
+			"style",
 			"pieceSpec",
 			""
 		],
 		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
-		"whole_word": false,
+		"whole_word": true,
 		"wrap": true
 	},
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -185,8 +257,8 @@
 						"selection":
 						[
 							[
-								2847,
-								2847
+								3004,
+								3004
 							]
 						],
 						"settings":
@@ -194,105 +266,25 @@
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 213.0,
+						"translation.y": 663.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "Sandbox/draft2.htm",
-					"settings":
-					{
-						"buffer_size": 1437,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1196,
-								1196
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "Sandbox/boardState.js",
-					"settings":
-					{
-						"buffer_size": 797,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								484,
-								484
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "Sandbox/Tests/test-boardState.js",
-					"settings":
-					{
-						"buffer_size": 150,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								52,
-								32
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
 					"file": "Sandbox/Tests/test1.htm",
 					"settings":
 					{
-						"buffer_size": 537,
+						"buffer_size": 752,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								392,
-								392
+								374,
+								374
 							]
 						],
 						"settings":
@@ -308,24 +300,185 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "Sandbox/arimaaSpecification.js",
+					"buffer": 2,
+					"file": "Sandbox/Tests/test-boardState.js",
 					"settings":
 					{
-						"buffer_size": 1004,
+						"buffer_size": 995,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1004,
-								1004
+								712,
+								712
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Sandbox/boardState.js",
+					"settings":
+					{
+						"buffer_size": 873,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								656,
+								656
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 180.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "Sandbox/draft2.htm",
+					"settings":
+					{
+						"buffer_size": 1999,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								322,
+								255
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 45.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "Sandbox/render.js",
+					"settings":
+					{
+						"buffer_size": 2726,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1070,
+								1070
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "Sandbox/interactions.js",
+					"settings":
+					{
+						"buffer_size": 1498,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								102,
+								102
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "Sandbox/arimaaSpecification.js",
+					"settings":
+					{
+						"buffer_size": 2651,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								354,
+								354
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "Sandbox/arimaa.js",
+					"settings":
+					{
+						"buffer_size": 822,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								231,
+								231
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
