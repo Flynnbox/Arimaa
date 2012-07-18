@@ -3,32 +3,19 @@ if (typeof(arimaa) === 'undefined') {
     alert('requires arimaa.js');
 }
 
-if (typeof(arimaa.renderer) === 'undefined') {
+if (typeof(arimaa.canvasRenderer) === 'undefined') {
     arimaa.renderer = {};
 }
 
-arimaa.renderer = (function() {
+arimaa.canvasRenderer = function(canvasDomNode, spriteSpecification, boardSpecification, styleSpecification) {
 	"use strict";
 
-	var canvas = null,
-			context = null,
-			spriteProvider = null,
-			board = null,
-			styleSpec = {
-				'colorBorder': '',
-				'colorLine': '',
-				'colorSquare': '',
-				'colorSquareTrap': '#000000',
-				'colorSquareSelected': 'rgba(0, 0, 200, 0.5)',
-			},
-			
-
-	initialize = function(canvasDomNode, spriteImage){
-		canvas = canvasDomNode;
-		context = canvas.getContext("2d");
-		spriteProvider = createSpriteProvider(spriteImage);
-	},
-
+	var canvas = canvasDomNode,
+			context = canvas.getContext("2d"),
+			spriteProvider = spriteSpecification,
+			board = boardSpecification,
+			styleSpec = styleSpecification,
+	
 	clearBoard = function (context){
 		context.clearRect(board.x, board.y, board.width, board.height);
 	},
@@ -50,13 +37,13 @@ arimaa.renderer = (function() {
 		}
 
 		//ink Paths
-		context.strokeStyle = styleSpec.colorLine;
+		context.strokeStyle = styleSpec.lineColor;
     context.stroke();
 
 		//trap squares
 		for(var t = 0; t < board.traps.length; t++){
 			var trap = board.traps[t];
-			colorSquare(trap, styleSpec.colorSquareTrap);
+			colorSquare(trap, styleSpec.trapSquareColor);
 		}
 	},
 
@@ -68,57 +55,16 @@ arimaa.renderer = (function() {
 		context.fillRect(startX, startY, board.pieceSpec.width, board.pieceSpec.height);
 	},
 
-	createSpriteProvider = function(image){
-		return {
-			"image": image,
-			"gold": {
-				"elephant": defineSprite(3, 151, 46, 46),
-				"camel": defineSprite(51, 3, 47, 47),
-				"horse": defineSprite(50, 202, 47, 46),
-				"dog": defineSprite(51, 103, 46, 46),
-				"cat": defineSprite(3, 51, 46, 46),
-				"rabbit": defineSprite(2, 250, 46, 46)
-			},
-			"silver": {				
-				"elephant": defineSprite(100, 151, 46, 46),
-				"camel": defineSprite(148, 3, 47, 47),
-				"horse": defineSprite(147, 202, 47, 46),
-				"dog": defineSprite(148, 103, 46, 46),
-				"cat": defineSprite(100, 51, 46, 46),
-				"rabbit": defineSprite(99, 250, 46, 46)
-			},
-			getSprite: function(color, name){
-				return this[color][name];
-			}
-		};
-	},
-
-	defineSprite = function(x, y, width, height){
-		return {
-			"x": x,
-			"y": y,
-			"width": width,
-			"height": height
-		};
-	},
-
 	drawSprite = function (color, name, x, y){
 		var sprite = spriteProvider.getSprite(color, name);
 		context.drawImage(spriteProvider.image, sprite.x, sprite.y, sprite.width, sprite.height, x, y, sprite.width, sprite.height);
 	},
 
 	highlightSquare = function(square){
-		colorSquare(square, styleSpec.colorSquareSelected);
+		colorSquare(square, styleSpec.selectedSquareColor);
 	},
 
-	render = function (boardSpec){
-		if(typeof(boardSpec) == "undefined" || boardSpec === null){
-			arimaa.log("board is not defined.");
-			return;
-		}
-
-		board = boardSpec;
-
+	render = function (){
 		drawBoard(context);
 
 		//draw gold sprites
@@ -139,9 +85,8 @@ arimaa.renderer = (function() {
 	};
 
 	return {
-		initialize: initialize,
 		render: render,
 		highlightSquare: highlightSquare
 	};
 
-}());
+};

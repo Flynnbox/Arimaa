@@ -19,18 +19,20 @@
 "use strict";
 
 	var canvas = document.getElementById("sandbox"),
-			spriteFilePath = "arimaa_50x50.jpg"
+			spriteFilePath = "arimaa_50x50.jpg",
+			canvasRenderer = null;
 	
 	function synchronize(image){
 		arimaa.boardState.initialize(arimaaBoard);
-		arimaa.renderer.initialize(canvas, image);
-		arimaa.renderer.render(arimaaBoard);
+		var arimaaSpriteSpecification = createSpriteProvider(image);
+		canvasRenderer = new arimaa.canvasRenderer(canvas, arimaaSpriteSpecification, arimaaBoard, arimaaBoardStyle);
+		canvasRenderer.render();
 		arimaa.interactions.initialize(canvas, arimaaBoard);
 	}
 
 	arimaa.on('boardClick', function(square){
 		console.log("clicked on column " + square.column + " and row " + square.row);
-		arimaa.renderer.highlightSquare(square);
+		canvasRenderer.highlightSquare(square);
 	});
 
 	arimaa.imageLoader.load(spriteFilePath, synchronize);
