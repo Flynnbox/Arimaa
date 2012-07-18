@@ -67,6 +67,10 @@ arimaa.canvasRenderer = function(canvasDomNode, spriteSpecification, boardSpecif
 	},
 
 	render = function (){
+		//resize canvas to minimum render dimensions
+		canvas.width = style.board.width;
+		canvas.height = style.board.height;
+
 		drawBoard(context);
 
 		//draw gold sprites
