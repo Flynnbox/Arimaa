@@ -1,4 +1,4 @@
-//represents configuration information used by other modules
+//represents configuration objects used by other modules
 
 if (typeof(arimaa) === 'undefined') {
     alert('requires arimaa.js');
@@ -12,7 +12,7 @@ arimaa.specification = function(){
 	"use strict";
 
 	var
-	
+
 	defineBoard = function(columns, rows, trapSquares){
 		return {
 			"rows": rows,
@@ -58,7 +58,8 @@ arimaa.specification = function(){
 		};
 	},
 
-	createSpriteProvider = function (image){
+	//TODO: replace hardcode sprite dimensions with parameter values
+	createSpriteProvider = function (image, goldSpriteDefinitions, silverSpriteDefinitions){
 		return {
 			"image": image,
 			"gold": {
