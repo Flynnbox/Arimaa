@@ -12,6 +12,8 @@ arimaa.boardState = function(newBoard, goldTeam, silverTeam) {
 	"use strict";
 
 	var board = null,
+			gold = goldTeam,
+			silver = silverTeam,
 			currentState = [],
 			draftState = [],
 
@@ -94,7 +96,8 @@ arimaa.boardState = function(newBoard, goldTeam, silverTeam) {
 		//hasBegun: hasBegun,
 		hasEnded: hasEnded,
 		//winner: winner
-		board: board
-
+		board: board,
+		gold: gold,
+		silver: silver
 	};
 }
