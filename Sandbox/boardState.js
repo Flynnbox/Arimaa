@@ -14,6 +14,8 @@ arimaa.boardState = function(newBoard, goldTeam, silverTeam) {
 	var board = null,
 			gold = goldTeam,
 			silver = silverTeam,
+			moveLog = [],
+			capturedPieces = [],
 			currentState = [],
 			draftState = [],
 
@@ -78,8 +80,16 @@ arimaa.boardState = function(newBoard, goldTeam, silverTeam) {
 		boardSquare.isTrap;
 	},
 
+	getBoardSquare = function(square){
+		return _.find(board.squares, function(element){ return element.column === square.column && element.row === square.row;});
+	},
+
 	getPiece = function(boardSquare){
 		return boardSquare.piece;
+	},
+
+	setPiece = function(boardSquare, piece){
+
 	},
 
 	updateDraftState = function(){

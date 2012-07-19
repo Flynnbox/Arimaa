@@ -4,12 +4,28 @@
 		"selected_items":
 		[
 			[
-				"tr",
-				"trapSquares"
+				"board",
+				"boardSquare"
 			],
 			[
-				"board",
-				"boardState"
+				"s",
+				"setupColor"
+			],
+			[
+				"gol",
+				"goalColor"
+			],
+			[
+				"boa",
+				"boardSpec"
+			],
+			[
+				"bo",
+				"boardSpec"
+			],
+			[
+				"tr",
+				"trapSquares"
 			],
 			[
 				"de",
@@ -52,16 +68,8 @@
 				"arimaaBoard"
 			],
 			[
-				"bo",
-				"boardState"
-			],
-			[
 				"boar",
 				"boardSpecification"
-			],
-			[
-				"s",
-				"colorSquareSelected  (variable)"
 			],
 			[
 				"co",
@@ -87,7 +95,7 @@
 			"file": "Sandbox/Tests/test1.htm",
 			"settings":
 			{
-				"buffer_size": 752,
+				"buffer_size": 833,
 				"line_ending": "Windows"
 			}
 		},
@@ -95,7 +103,7 @@
 			"file": "Sandbox/Tests/test-boardState.js",
 			"settings":
 			{
-				"buffer_size": 995,
+				"buffer_size": 1086,
 				"line_ending": "Windows"
 			}
 		},
@@ -103,7 +111,15 @@
 			"file": "Sandbox/boardState.js",
 			"settings":
 			{
-				"buffer_size": 873,
+				"buffer_size": 2471,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Sandbox/arimaaSpecification.js",
+			"settings":
+			{
+				"buffer_size": 4150,
 				"line_ending": "Windows"
 			}
 		},
@@ -111,7 +127,7 @@
 			"file": "Sandbox/draft2.htm",
 			"settings":
 			{
-				"buffer_size": 1999,
+				"buffer_size": 2078,
 				"line_ending": "Windows"
 			}
 		},
@@ -132,18 +148,18 @@
 			}
 		},
 		{
-			"file": "Sandbox/arimaaSpecification.js",
-			"settings":
-			{
-				"buffer_size": 2651,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "Sandbox/arimaa.js",
 			"settings":
 			{
 				"buffer_size": 822,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Sandbox/ruleEngine.js",
+			"settings":
+			{
+				"buffer_size": 166,
 				"line_ending": "Windows"
 			}
 		}
@@ -172,6 +188,8 @@
 	},
 	"file_history":
 	[
+		"//devappweb/d$/Inetpub/IHI.org/LMSAPI/Web.config",
+		"/C/IHI_MAIN/trunk/Database/IHI/ChangeScripts/LMS/2010_03_27_InsertProfileDerivableRoles_PrimaryRoleAndCountry.sql",
 		"/C/Users/aflynn/Documents/GitHub/Arimaa/Sandbox/square.js",
 		"/C/Users/aflynn/Documents/GitHub/Arimaa/Sandbox/ruleEngine.js",
 		"/C/Users/aflynn/Documents/GitHub/Arimaa/Sandbox/interactions.js",
@@ -193,7 +211,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 90.0,
+		"height": 0.0,
 		"where_history":
 		[
 			"C:\\Users\\aflynn\\Documents\\GitHub\\Arimaa",
@@ -205,6 +223,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"id++, color",
 			"pieceSpec",
 			"style.",
 			"styleSpec",
@@ -225,6 +244,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"color, id++",
 			"piece",
 			"style.board.",
 			"style",
@@ -276,15 +296,15 @@
 					"file": "Sandbox/Tests/test1.htm",
 					"settings":
 					{
-						"buffer_size": 752,
+						"buffer_size": 833,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								374,
-								374
+								413,
+								413
 							]
 						],
 						"settings":
@@ -304,20 +324,21 @@
 					"file": "Sandbox/Tests/test-boardState.js",
 					"settings":
 					{
-						"buffer_size": 995,
+						"buffer_size": 1086,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								712,
-								712
+								974,
+								974
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -330,15 +351,15 @@
 					"file": "Sandbox/boardState.js",
 					"settings":
 					{
-						"buffer_size": 873,
+						"buffer_size": 2471,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								656,
-								656
+								1991,
+								1991
 							]
 						],
 						"settings":
@@ -347,25 +368,52 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 180.0,
+						"translation.y": 990.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "Sandbox/draft2.htm",
+					"file": "Sandbox/arimaaSpecification.js",
 					"settings":
 					{
-						"buffer_size": 1999,
+						"buffer_size": 4150,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								322,
-								255
+								402,
+								402
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "Sandbox/draft2.htm",
+					"settings":
+					{
+						"buffer_size": 2078,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								294,
+								294
 							]
 						],
 						"settings":
@@ -380,7 +428,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "Sandbox/render.js",
 					"settings":
 					{
@@ -401,13 +449,13 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 990.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "Sandbox/interactions.js",
 					"settings":
 					{
@@ -425,33 +473,6 @@
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "Sandbox/arimaaSpecification.js",
-					"settings":
-					{
-						"buffer_size": 2651,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								354,
-								354
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -479,6 +500,32 @@
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "Sandbox/ruleEngine.js",
+					"settings":
+					{
+						"buffer_size": 166,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								96,
+								96
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
