@@ -26,7 +26,8 @@ arimaa.boardState = function(newBoard, goldTeam, silverTeam) {
 			"isTrap": isTrap,
 			"goalColor": goalColor,
 			"setupColor": setupColor,
-			"piece": null
+			"piece": null,			
+			"id": "col " + column + " row " + row
 		};
 	},
 
@@ -65,19 +66,19 @@ arimaa.boardState = function(newBoard, goldTeam, silverTeam) {
 	},
 
 	isOccupied = function(boardSquare){
-		return square.piece !== null;
+		return boardSquare.piece !== null;
 	},
 
 	isGoalSquare = function(boardSquare, color){
-
+		return boardSquare.goalColor === color;
 	},
 
 	isSetupSquare = function(boardSquare, color){
-
+		return boardSquare.setupColor === color;
 	},
 
 	isTrap = function(boardSquare){
-		boardSquare.isTrap;
+		return boardSquare.isTrap;
 	},
 
 	getBoardSquare = function(square){
@@ -89,7 +90,11 @@ arimaa.boardState = function(newBoard, goldTeam, silverTeam) {
 	},
 
 	setPiece = function(boardSquare, piece){
-
+		if (boardSquare.piece === null){
+			boardSquare.piece = piece;
+			return;
+		}
+		arimaa.log("boardState::setPiece:: Cannot set " + piece.id + " on position " + boardSquare.id + "; " + piece.id + " is currently occupying that position.")
 	},
 
 	updateDraftState = function(){

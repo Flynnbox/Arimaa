@@ -74,17 +74,41 @@ arimaa.specification = function(){
 		}
 	},
 
-	defineBoard = function(columns, rows, trapSquares){
-		var traps = trapSquares;
-		if (typeof(traps) === 'undefined' || traps === null){
-			traps = [];
+	defineBoard = function(columns, rows, trapSquares, goalRows, setupRows){
+		//set smart default values for standard arimaa board
+		if (typeof(columns) === 'undefined' || columns === null){
+			columns = 8;
+		}
+		if (typeof(rows) === 'undefined' || rows === null){
+			rows = 8;
+		}
+		if (typeof(trapSquares) === 'undefined' || trapSquares === null){
+			if (rows = 8){
+				trapSquares = [new Square(2, 2), new Square(5, 2), new Square(2, 5), new Square(5, 5)];
+			} else {				
+				trapSquares = [];
+			}
+		}
+		if (typeof(goalRows) === 'undefined' || goalRows === null){
+			if (rows = 8){
+				goalRows = {"gold": 7, "silver": 0};
+			} else {
+				goalRows = {"gold": null, "silver": null};
+			}
+		}
+		if (typeof(setupRows) === 'undefined' || setupRows === null){
+			if (rows = 8){
+				setupRows = {"gold": [6,7], "silver": [0,1]};
+			} else {
+				setupRows = {"gold": [], "silver": []};
+			}
 		}
 		return {
 			"rows": rows,
 			"columns": columns,
-			"traps": traps,
-			"goalRows": {"gold": 7, "silver": 0},
-			"setupRows": {"gold": [6,7], "silver": [0,1]}
+			"traps": trapSquares,
+			"goalRows": goalRows,
+			"setupRows": setupRows
 		};
 	},
 
