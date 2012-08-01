@@ -112,6 +112,14 @@ arimaa.specification = function(){
 		};
 	},
 
+	defineGoalRows = function(goldRow, silverRow){
+		return {"gold": goldRow, "silver": silverRow}
+	},
+
+	defineSetupRows = function(goldRows, silverRows){
+		return {"gold": goldRows, "silver": silverRows}
+	},
+
 	defineBoardStyle = function(x, y, boardSpecification, playingPieceDimensions){
 		return {
 			"x": x,
@@ -182,6 +190,8 @@ arimaa.specification = function(){
 	}
 
 	return {
+		defineGoalRows: defineGoalRows,
+		defineSetupRows: defineSetupRows,
 		defineBoard: defineBoard,
 		defineBoardStyle: defineBoardStyle,
 		definePieceStyle: definePieceStyle,

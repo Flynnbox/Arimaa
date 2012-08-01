@@ -4,6 +4,42 @@
 		"selected_items":
 		[
 			[
+				"game",
+				"gameState"
+			],
+			[
+				"boa",
+				"boardSquares"
+			],
+			[
+				"ar",
+				"arimaaSpec"
+			],
+			[
+				"def",
+				"defineGoalRows"
+			],
+			[
+				"silver",
+				"silverRow"
+			],
+			[
+				"gold",
+				"goldRow"
+			],
+			[
+				"se",
+				"setupRows"
+			],
+			[
+				"go",
+				"goalRows"
+			],
+			[
+				"b",
+				"boardSquare"
+			],
+			[
 				"board",
 				"boardSquare"
 			],
@@ -14,10 +50,6 @@
 			[
 				"gol",
 				"goalColor"
-			],
-			[
-				"boa",
-				"boardSpec"
 			],
 			[
 				"bo",
@@ -36,10 +68,6 @@
 				"createSpriteProvider"
 			],
 			[
-				"b",
-				"board"
-			],
-			[
 				"a",
 				"arimaaPieceStyle"
 			],
@@ -50,10 +78,6 @@
 			[
 				"define",
 				"defineGameStyle"
-			],
-			[
-				"def",
-				"definePieceStyle"
 			],
 			[
 				"piec",
@@ -103,7 +127,7 @@
 			"file": "Sandbox/Tests/test-boardState.js",
 			"settings":
 			{
-				"buffer_size": 1086,
+				"buffer_size": 2465,
 				"line_ending": "Windows"
 			}
 		},
@@ -111,7 +135,7 @@
 			"file": "Sandbox/boardState.js",
 			"settings":
 			{
-				"buffer_size": 2471,
+				"buffer_size": 3618,
 				"line_ending": "Windows"
 			}
 		},
@@ -119,7 +143,7 @@
 			"file": "Sandbox/arimaaSpecification.js",
 			"settings":
 			{
-				"buffer_size": 4150,
+				"buffer_size": 5130,
 				"line_ending": "Windows"
 			}
 		},
@@ -127,7 +151,7 @@
 			"file": "Sandbox/draft2.htm",
 			"settings":
 			{
-				"buffer_size": 2078,
+				"buffer_size": 2000,
 				"line_ending": "Windows"
 			}
 		},
@@ -188,9 +212,10 @@
 	},
 	"file_history":
 	[
+		"/C/Users/aflynn/Documents/GitHub/Arimaa/Sandbox/square.js",
+		"/C/Users/aflynn/Documents/Development/LMS/JSON-LessonContent-Sample.js",
 		"//devappweb/d$/Inetpub/IHI.org/LMSAPI/Web.config",
 		"/C/IHI_MAIN/trunk/Database/IHI/ChangeScripts/LMS/2010_03_27_InsertProfileDerivableRoles_PrimaryRoleAndCountry.sql",
-		"/C/Users/aflynn/Documents/GitHub/Arimaa/Sandbox/square.js",
 		"/C/Users/aflynn/Documents/GitHub/Arimaa/Sandbox/ruleEngine.js",
 		"/C/Users/aflynn/Documents/GitHub/Arimaa/Sandbox/interactions.js",
 		"/C/Users/aflynn/Documents/GitHub/Arimaa/Sandbox/render.js",
@@ -262,7 +287,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -286,7 +311,7 @@
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 663.0,
+						"translation.y": 798.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -303,8 +328,8 @@
 						"selection":
 						[
 							[
-								413,
-								413
+								609,
+								609
 							]
 						],
 						"settings":
@@ -324,15 +349,15 @@
 					"file": "Sandbox/Tests/test-boardState.js",
 					"settings":
 					{
-						"buffer_size": 1086,
+						"buffer_size": 2465,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								974,
-								974
+								1804,
+								1804
 							]
 						],
 						"settings":
@@ -341,7 +366,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 360.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -351,15 +376,15 @@
 					"file": "Sandbox/boardState.js",
 					"settings":
 					{
-						"buffer_size": 2471,
+						"buffer_size": 3618,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1991,
-								1991
+								3611,
+								3611
 							]
 						],
 						"settings":
@@ -368,7 +393,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 990.0,
+						"translation.y": 1845.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -378,15 +403,15 @@
 					"file": "Sandbox/arimaaSpecification.js",
 					"settings":
 					{
-						"buffer_size": 4150,
+						"buffer_size": 5130,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								402,
-								402
+								4873,
+								4873
 							]
 						],
 						"settings":
@@ -395,7 +420,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 270.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -405,15 +430,15 @@
 					"file": "Sandbox/draft2.htm",
 					"settings":
 					{
-						"buffer_size": 2078,
+						"buffer_size": 2000,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								294,
-								294
+								2000,
+								2000
 							]
 						],
 						"settings":
@@ -422,7 +447,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 45.0,
+						"translation.y": 270.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -502,7 +527,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 45.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

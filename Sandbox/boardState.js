@@ -20,6 +20,27 @@ arimaa.boardState = function(newBoard, goldTeam, silverTeam) {
 			draftState = [],
 
 	BoardSquare = function(column, row, isTrap, goalColor, setupColor){
+
+		var toString = function(){
+			var temp = [];
+			temp.push("boardSquare::");			
+			temp.push("id:");
+			temp.push(id);
+			temp.push("col:");			
+			temp.push(col);
+			temp.push("row:");
+			temp.push(row);
+			temp.push("isTrap:");
+			temp.push(isTrap);
+			temp.push("goalColor:");
+			temp.push(goalColor);
+			temp.push("setupColor:");
+			temp.push(setupColor);
+			temp.push("piece:");
+			temp.push(piece.id);
+			return temp.join("");
+		};
+
 		return {
 			"column": column,
 			"row": row,
@@ -27,12 +48,25 @@ arimaa.boardState = function(newBoard, goldTeam, silverTeam) {
 			"goalColor": goalColor,
 			"setupColor": setupColor,
 			"piece": null,			
-			"id": "col " + column + " row " + row
+			"id": "col " + column + " row " + row,
+			"toString": toString
 		};
 	},
 
 	createBoardModel = function(boardSpec){
-		var boardSquares = [];
+
+		var boardSquares = [],
+
+		toString = function(){
+			var temp = [];
+			temp.push("board::")
+			for(var x = 0; x <= boardSquares.length; x++){
+				temp.push("\n\t");
+				temp.push(boardSquares.toString());
+			}
+			return temp.join("");
+		};
+
 		for(var x = 0; x < boardSpec.columns; x++){
 			for(var y = 0; y < boardSpec.rows; y++){
 				var isTrap = false,
@@ -57,7 +91,8 @@ arimaa.boardState = function(newBoard, goldTeam, silverTeam) {
 			}
 		}
 		return {
-			"squares": boardSquares
+			"squares": boardSquares,
+			"toString": toString
 		};
 	},
 
@@ -113,6 +148,8 @@ arimaa.boardState = function(newBoard, goldTeam, silverTeam) {
 		//winner: winner
 		board: board,
 		gold: gold,
-		silver: silver
+		silver: silver,
+		isGoalSquare: isGoalSquare,
+		isSetupSquare: isSetupSquare
 	};
 }
