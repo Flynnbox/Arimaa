@@ -187,7 +187,23 @@ arimaa.specification = function(){
 				return this[color][pieceName];
 			}
 		};
-	}
+	},
+
+	getSquaresForRow = function(board, rows){
+		var squares = [];
+		if( Object.prototype.toString.call( rows ) !== '[object Array]' ) {
+			var temp = rows;
+			rows = [];
+			rows.push(temp);
+		};
+
+		for(var y = 0; y < rows.length; y++){
+			for(var x = 0; x < board.columns; x++){
+				squares.push(new Square(x, rows[y]));
+			}
+		}
+		return squares;
+	};
 
 	return {
 		defineGoalRows: defineGoalRows,
@@ -197,6 +213,7 @@ arimaa.specification = function(){
 		definePieceStyle: definePieceStyle,
 		defineGameStyle: defineGameStyle,
 		defineSprite: defineSprite,
-		createSpriteProvider: createSpriteProvider
-	}
+		createSpriteProvider: createSpriteProvider,
+		getSquaresForRow: getSquaresForRow
+	};
 };
