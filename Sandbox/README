@@ -59,9 +59,9 @@ MILESTONES
 !Separate image loading from render module
 !Create boardSpecification json
 !On click highlight square
+!Use TDD to rough out boardState features
 On highlight, preserve sprite on square
 On click of highlighted square, remove highlight
-Use TDD to rough out boardState features
 
 
 GAME STATE VALIDATIONS

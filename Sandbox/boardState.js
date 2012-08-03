@@ -111,7 +111,7 @@ arimaa.boardState = function(newBoard, goldTeam, silverTeam) {
 		return boardSquare.setupColor === color;
 	},
 
-	isTrap = function(square){
+	isTrapSquare = function(square){
 		var boardSquare = getBoardSquare(square);
 		return boardSquare.isTrap;
 	},
@@ -134,6 +134,14 @@ arimaa.boardState = function(newBoard, goldTeam, silverTeam) {
 		arimaa.log("boardState::setPiece:: Cannot set " + piece.id + " on position " + boardSquare.id + "; " + piece.id + " is currently occupying that position.")
 	},
 
+	removePiece = function(square){
+		var boardSquare = getBoardSquare(square);
+		if(boardSquare.piece === null){
+			arimaa.log("boardState::removePiece:: Cannot remove a piece from position " + boardSquare.id + " as no piece is currently occupying it.")
+		}
+		boardSquare.piece == null;
+	},
+
 	updateDraftState = function(){
 		//respond to rulesEngine events to update piece positions
 	},
@@ -151,7 +159,11 @@ arimaa.boardState = function(newBoard, goldTeam, silverTeam) {
 		board: board,
 		gold: gold,
 		silver: silver,
-		isGoalSquare: isGoalSquare,
-		isSetupSquare: isSetupSquare
+		isGoal: isGoalSquare,
+		isSetup: isSetupSquare,
+		isTrap: isTrapSquare,
+		getPiece: getPiece,
+		setPiece: setPiece,
+		removePiece: removePiece
 	};
 }
