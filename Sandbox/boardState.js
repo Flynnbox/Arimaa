@@ -24,20 +24,16 @@ arimaa.boardState = function(newBoard, goldTeam, silverTeam) {
 		var toString = function(){
 			var temp = [];
 			temp.push("boardSquare::");			
-			temp.push("id:");
-			temp.push(id);
-			temp.push("col:");			
-			temp.push(col);
-			temp.push("row:");
-			temp.push(row);
-			temp.push("isTrap:");
-			temp.push(isTrap);
-			temp.push("goalColor:");
-			temp.push(goalColor);
-			temp.push("setupColor:");
-			temp.push(setupColor);
-			temp.push("piece:");
-			temp.push(piece.id);
+			temp.push(" id:");
+			temp.push(this.id);
+			temp.push(" isTrap:");
+			temp.push(this.isTrap);
+			temp.push(" goalColor:");
+			temp.push(this.goalColor);
+			temp.push(" setupColor:");
+			temp.push(this.setupColor);
+			temp.push(" piece:");
+			temp.push(this.piece !== null ? this.piece.id : "none");
 			return temp.join("");
 		};
 
@@ -60,9 +56,9 @@ arimaa.boardState = function(newBoard, goldTeam, silverTeam) {
 		toString = function(){
 			var temp = [];
 			temp.push("board::")
-			for(var x = 0; x <= boardSquares.length; x++){
+			for(var x = 0; x < boardSquares.length; x++){
 				temp.push("\n\t");
-				temp.push(boardSquares.toString());
+				temp.push(boardSquares[x].toString());
 			}
 			return temp.join("");
 		};
@@ -100,19 +96,23 @@ arimaa.boardState = function(newBoard, goldTeam, silverTeam) {
 		return false;
 	},
 
-	isOccupied = function(boardSquare){
+	isOccupied = function(square){
+		var boardSquare = getBoardSquare(square);
 		return boardSquare.piece !== null;
 	},
 
-	isGoalSquare = function(boardSquare, color){
+	isGoalSquare = function(square, color){
+		var boardSquare = getBoardSquare(square);
 		return boardSquare.goalColor === color;
 	},
 
-	isSetupSquare = function(boardSquare, color){
+	isSetupSquare = function(square, color){
+		var boardSquare = getBoardSquare(square);
 		return boardSquare.setupColor === color;
 	},
 
-	isTrap = function(boardSquare){
+	isTrap = function(square){
+		var boardSquare = getBoardSquare(square);
 		return boardSquare.isTrap;
 	},
 
@@ -120,11 +120,13 @@ arimaa.boardState = function(newBoard, goldTeam, silverTeam) {
 		return _.find(board.squares, function(element){ return element.column === square.column && element.row === square.row;});
 	},
 
-	getPiece = function(boardSquare){
+	getPiece = function(square){
+		var boardSquare = getBoardSquare(square);
 		return boardSquare.piece;
 	},
 
-	setPiece = function(boardSquare, piece){
+	setPiece = function(square, piece){
+		var boardSquare = getBoardSquare(square);
 		if (boardSquare.piece === null){
 			boardSquare.piece = piece;
 			return;
