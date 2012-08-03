@@ -36,9 +36,14 @@
 		arimaa.interactions.initialize(canvas, arimaaGameStyle);
 	}
 
-	arimaa.on('boardClick', function(square){
-		arimaa.log("clicked on column " + square.column + " and row " + square.row);
+	arimaa.on('squareSelected', function(square){
+		arimaa.log("seelcting on column " + square.column + " and row " + square.row);
 		canvasRenderer.highlightSquare(square);
+	});
+
+	arimaa.on('squareDeselected', function(square){
+		arimaa.log("deselecting column " + square.column + " and row " + square.row);
+		canvasRenderer.lowlightSquare(square);
 	});
 
 	arimaa.imageLoader.load(spriteFilePath, synchronize);

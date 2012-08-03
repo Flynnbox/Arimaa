@@ -13,6 +13,7 @@ arimaa.interactions = (function() {
 
 	var canvas = null,
 			style = null,
+			selectedSquare = null,
 
 	initialize = function(canvasDomNode, styleSpecification){
 		canvas = canvasDomNode;
@@ -21,7 +22,6 @@ arimaa.interactions = (function() {
 	},
 
 	findSquare = function(canvasX, canvasY){
-		//arimaa.log("interactions::findSquare:: canvasX " + canvasX + " canvasY " + canvasY);
 		var x = Math.min(canvasX, style.board.width * style.piece.width),
     		y = Math.min(canvasY, style.board.height * style.piece.height);
     return new Square(Math.floor(x/style.piece.width), Math.floor(y/style.piece.height));
@@ -45,8 +45,16 @@ arimaa.interactions = (function() {
 	},
 
 	boardOnClick = function(e) {
-    var square = getCursorPosition(e);	    
-    arimaa.trigger('boardClick', square);
+    var newSquare = getCursorPosition(e);
+    if (selectedSquare !== null){ 	
+    	arimaa.trigger('squareDeselected', selectedSquare);
+    	if (selectedSquare.isEqual(newSquare)){    	
+    		selectedSquare = null;
+    		return;
+    	}
+    }
+  	selectedSquare = newSquare;
+  	arimaa.trigger('squareSelected', selectedSquare);
 	};
 
 	return{

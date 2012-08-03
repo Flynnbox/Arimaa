@@ -48,12 +48,12 @@ arimaa.canvasRenderer = function(canvasDomNode, spriteSpecification, boardSpecif
 		}
 	},
 
-	colorSquare = function(square, hexColor){
-		var startX = (style.piece.width * square.column) + 0.5,
-				startY = (style.piece.height * square.row) + 0.5;
+	colorSquare = function(square, color){
+		var startX = (style.piece.width * square.column) + 1,
+				startY = (style.piece.height * square.row) + 1;
 		
-		context.fillStyle = hexColor;
-		context.fillRect(startX, startY, style.piece.width, style.piece.height);
+		context.fillStyle = color;
+		context.fillRect(startX, startY, style.piece.width - 1, style.piece.height - 1);
 	},
 
 	drawSprite = function (color, name, x, y){
@@ -63,6 +63,10 @@ arimaa.canvasRenderer = function(canvasDomNode, spriteSpecification, boardSpecif
 
 	highlightSquare = function(square){
 		colorSquare(square, style.board.selectedSquareColor);
+	},
+
+	lowlightSquare = function(square){
+		colorSquare(square, style.board.squareColor);
 	},
 
 	render = function (){
@@ -91,7 +95,8 @@ arimaa.canvasRenderer = function(canvasDomNode, spriteSpecification, boardSpecif
 
 	return {
 		render: render,
-		highlightSquare: highlightSquare
+		highlightSquare: highlightSquare,
+		lowlightSquare: lowlightSquare
 	};
 
 };

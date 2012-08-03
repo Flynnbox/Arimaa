@@ -128,8 +128,8 @@ arimaa.specification = function(){
 			"height": 1 + (boardSpecification.rows * playingPieceDimensions.height),
 			'borderColor': '',
 			'lineColor': '',
-			'squareColor': '',
-			'trapSquareColor': '#000000',
+			'squareColor': 'rgba(255, 255, 255, 1)',
+			'trapSquareColor': 'rgba(0, 0, 0, 1)',
 			'selectedSquareColor': 'rgba(0, 0, 200, 0.5)'
 		};
 	},
