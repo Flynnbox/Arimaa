@@ -32,8 +32,14 @@ DESIGN DECISIONS
 	>Use QUnit for js unit testing for its ease and minimal requirements (1 external css and 1 external js file)
 		>Consider Mocha as future alternateive that is better suited for async testing
 	>Avoid use of mouse hover or other web idioms that would make it difficult to translate to mobile platform
-2012/7/17
+2012/07/17
 	>Arimaa notation varies, so use internal representation of piece position and translate from/to Arimaa notation(s) (e.g. Hg3n) as needed.
+2012/08/03
+	>Must demonstrate game can run
+		>With ui, driven by user interaction (specification, boardstate, ruleEngine, render, interactions)
+		>With ui, driven by log file of moves (specification, boardstate, ruleEngine, render)
+		>Without ui, driven by log file of moves (specification, boardstate, ruleEngine)
+	>Design so that rendering method (e.g. canvas, svg) can be swapped with no impact except changing to alternate render js file
 
 QUESTIONS / ISSUES
 Use revealing module pattern with/without constructors?
@@ -49,7 +55,8 @@ Use webworkers to handle processing of bot move calculation?
 Refactor
 	>Remove sprite management from render.js and create a sprite manager; takes sprite specification that defines image file path and positions of each sprite
 >How to create a serializable event stream to allow undo/redo functionality for each board move
->Should renderer conceal entirely the details of the render surface (e.g. canvas, svg, etc) and only expose events for click and other things?
+>Should renderer conceal entirely the details of the render surface (e.g. canvas, svg, etc) and only expose pure arimaa events for click and other things? Yes.
+>Should interactions specify the render action?
 
 MILESTONES
 !Render board and pieces

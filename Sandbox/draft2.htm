@@ -32,9 +32,9 @@
 		
 	function synchronize(image){
 		arimaaBoardState = new arimaa.boardState(arimaaBoardSpecification);
-		canvasRenderer = new arimaa.canvasRenderer(canvas, arimaaSpec.createSpriteProvider(image), arimaaBoardSpecification, arimaaGameStyle);
-		canvasRenderer.render();
+		canvasRenderer = new arimaa.canvasRenderer(canvas, arimaaSpec.createSpriteProvider(image), arimaaBoardSpecification, arimaaGameStyle);		
 		arimaaInteraction = new arimaa.interactions(canvasRenderer);
+		canvasRenderer.render();
 	}
 
 	arimaa.imageLoader.load(spriteFilePath, synchronize);

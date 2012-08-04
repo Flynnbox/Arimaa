@@ -1,4 +1,4 @@
-//acts as a weak controller to throw events based on ui actions
+//acts as a weak controller to throw events based on ui published actions
 
 if (typeof(arimaa) === 'undefined') {
     alert('requires arimaa.js');
@@ -15,11 +15,10 @@ arimaa.interactions = function(renderProvider) {
 			selectedSquare = null,
 
 	subscribe = function(){
-		arimaa.on("arimaa.ui.click", boardOnClick);
+		arimaa.on('arimaa.squareSelected', squareSelected);
 	},
 
-
-	boardOnClick = function(newSquare) {
+	squareSelected = function(newSquare) {
     if (selectedSquare !== null){ 	
     	arimaa.log('deselecting ' + selectedSquare.toString());
     	arimaa.trigger('arimaa.squareDeselected', selectedSquare);
@@ -31,7 +30,6 @@ arimaa.interactions = function(renderProvider) {
     }
   	selectedSquare = newSquare;
   	arimaa.log('selecting ' + selectedSquare.toString());
-  	arimaa.trigger('arimaa.squareSelected', selectedSquare);
   	renderer.highlightSquare(selectedSquare);
 	};
 

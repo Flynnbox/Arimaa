@@ -98,18 +98,30 @@ arimaa.canvasRenderer = function(canvasDomNode, spriteSpecification, boardSpecif
 	},
 
 	eventClick = function(e){
-		var clickedSquare = getSquareAtCursorPosition(e);
-		arimaa.trigger('arimaa.ui.click', clickedSquare);
+		var point = getCursorPoint(e);
+		arimaa.trigger('arimaa.ui.click', point);
+		//TODO: Check if point is outside board; e.g. may not be square
+		var clickedSquare = calculateSquareFromPixels(point.x, point.y);
+		arimaa.trigger('arimaa.squareSelected', clickedSquare);
 	},
 
 	addEventListeners = function(){
 		canvas.addEventListener("click", eventClick, false);
+		//drag
+		//release
+		//tap
+		//mouseover
+		//mouseleave
 	},
 
 	render = function (){
 		//resize canvas to minimum render dimensions
-		canvas.width = style.board.width;
-		canvas.height = style.board.height;
+		if(canvas.width < style.board.width){
+			canvas.width = style.board.width;
+		}
+		if(canvas.height < style.board.height){
+			canvas.height = style.board.height;
+		}
 
 		drawBoard(context);
 
