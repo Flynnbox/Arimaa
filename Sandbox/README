@@ -61,8 +61,10 @@ MILESTONES
 !On click highlight square
 !On highlight, preserve sprite on square
 !Use TDD to rough out boardState features
-On click of highlighted square, remove highlight
-On click of alternate square, remove highlight from prior square
+!On click of highlighted square, remove highlight
+!On click of alternate square, remove highlight from prior square
+On lowlight, preserve sprite on square
+On lowlight, restore prior color to square
 
 
 GAME STATE VALIDATIONS
