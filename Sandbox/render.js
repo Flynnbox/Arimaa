@@ -1,4 +1,4 @@
-//acts as a view for rendering the board onto a canvas dom node
+//acts as a view for rendering the board onto a canvas dom node and publishing ui events
 
 if (typeof(arimaa) === 'undefined') {
     alert('requires arimaa.js');
@@ -69,12 +69,51 @@ arimaa.canvasRenderer = function(canvasDomNode, spriteSpecification, boardSpecif
 		colorSquare(square, style.board.squareColor);
 	},
 
+	calculateSquareFromPixels = function(canvasX, canvasY){
+		var x = Math.min(canvasX, style.board.width * style.piece.width),
+    		y = Math.min(canvasY, style.board.height * style.piece.height);
+    return new Square(Math.floor(x/style.piece.width), Math.floor(y/style.piece.height));
+	},
+
+	getCursorPoint = function(e){
+		var x;
+    var y;
+    if (e.pageX != undefined && e.pageY != undefined) {
+			x = e.pageX;
+			y = e.pageY;
+    }
+    else {
+			x = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+			y = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+    }
+    x -= canvas.offsetLeft;
+    y -= canvas.offsetTop;
+    return {"x": x, "y": y};
+	},
+
+	getSquareAtCursorPosition = function (e) {
+    /* returns Square with .row and .column properties */
+    var point = getCursorPoint(e);
+		return calculateSquareFromPixels(point.x, point.y);
+	},
+
+	eventClick = function(e){
+		var clickedSquare = getSquareAtCursorPosition(e);
+		arimaa.trigger('arimaa.ui.click', clickedSquare);
+	},
+
+	addEventListeners = function(){
+		canvas.addEventListener("click", eventClick, false);
+	},
+
 	render = function (){
 		//resize canvas to minimum render dimensions
 		canvas.width = style.board.width;
 		canvas.height = style.board.height;
 
 		drawBoard(context);
+
+		addEventListeners();
 
 		//draw gold sprites
 		drawSprite("gold", "elephant", 2.5, 2.5);

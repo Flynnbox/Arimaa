@@ -49,6 +49,7 @@ Use webworkers to handle processing of bot move calculation?
 Refactor
 	>Remove sprite management from render.js and create a sprite manager; takes sprite specification that defines image file path and positions of each sprite
 >How to create a serializable event stream to allow undo/redo functionality for each board move
+>Should renderer conceal entirely the details of the render surface (e.g. canvas, svg, etc) and only expose events for click and other things?
 
 MILESTONES
 !Render board and pieces

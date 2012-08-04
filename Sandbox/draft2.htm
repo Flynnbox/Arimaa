@@ -23,6 +23,7 @@
 			spriteFilePath = "arimaa_50x50.jpg",
 			canvasRenderer = null,
 			arimaaBoardState = null,
+			arimaaInteraction = null,
 			arimaaSpec = new arimaa.specification(),
 			arimaaBoardSpecification = arimaaSpec.defineBoard(),
 			arimaaPieceStyle = arimaaSpec.definePieceStyle(50, 50),
@@ -33,18 +34,8 @@
 		arimaaBoardState = new arimaa.boardState(arimaaBoardSpecification);
 		canvasRenderer = new arimaa.canvasRenderer(canvas, arimaaSpec.createSpriteProvider(image), arimaaBoardSpecification, arimaaGameStyle);
 		canvasRenderer.render();
-		arimaa.interactions.initialize(canvas, arimaaGameStyle);
+		arimaaInteraction = new arimaa.interactions(canvasRenderer);
 	}
-
-	arimaa.on('squareSelected', function(square){
-		arimaa.log("seelcting on column " + square.column + " and row " + square.row);
-		canvasRenderer.highlightSquare(square);
-	});
-
-	arimaa.on('squareDeselected', function(square){
-		arimaa.log("deselecting column " + square.column + " and row " + square.row);
-		canvasRenderer.lowlightSquare(square);
-	});
 
 	arimaa.imageLoader.load(spriteFilePath, synchronize);
 </script>

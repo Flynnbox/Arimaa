@@ -8,56 +8,35 @@ if (typeof(arimaa.interactions) === 'undefined') {
     arimaa.interactions = {};
 }
 
-arimaa.interactions = (function() {
+arimaa.interactions = function(renderProvider) {
 	"use strict";
 
-	var canvas = null,
-			style = null,
+	var renderer = renderProvider,
 			selectedSquare = null,
 
-	initialize = function(canvasDomNode, styleSpecification){
-		canvas = canvasDomNode;
-		style = styleSpecification;
-		canvas.addEventListener("click", boardOnClick, false);
+	subscribe = function(){
+		arimaa.on("arimaa.ui.click", boardOnClick);
 	},
 
-	findSquare = function(canvasX, canvasY){
-		var x = Math.min(canvasX, style.board.width * style.piece.width),
-    		y = Math.min(canvasY, style.board.height * style.piece.height);
-    return new Square(Math.floor(x/style.piece.width), Math.floor(y/style.piece.height));
-	},
 
-	getCursorPosition = function (e) {
-    /* returns Square with .row and .column properties */
-    var x;
-    var y;
-    if (e.pageX != undefined && e.pageY != undefined) {
-			x = e.pageX;
-			y = e.pageY;
-    }
-    else {
-			x = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
-			y = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
-    }
-    x -= canvas.offsetLeft;
-    y -= canvas.offsetTop;
-    return findSquare(x, y);
-	},
-
-	boardOnClick = function(e) {
-    var newSquare = getCursorPosition(e);
+	boardOnClick = function(newSquare) {
     if (selectedSquare !== null){ 	
-    	arimaa.trigger('squareDeselected', selectedSquare);
+    	arimaa.log('deselecting ' + selectedSquare.toString());
+    	arimaa.trigger('arimaa.squareDeselected', selectedSquare);
+    	renderer.lowlightSquare(selectedSquare);
     	if (selectedSquare.isEqual(newSquare)){    	
     		selectedSquare = null;
     		return;
     	}
     }
   	selectedSquare = newSquare;
-  	arimaa.trigger('squareSelected', selectedSquare);
+  	arimaa.log('selecting ' + selectedSquare.toString());
+  	arimaa.trigger('arimaa.squareSelected', selectedSquare);
+  	renderer.highlightSquare(selectedSquare);
 	};
 
+	subscribe();
+
 	return{
-		initialize: initialize
 	};
-}());
+};
