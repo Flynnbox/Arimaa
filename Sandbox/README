@@ -33,7 +33,7 @@ DESIGN DECISIONS
 		>Consider Mocha as future alternateive that is better suited for async testing
 	>Avoid use of mouse hover or other web idioms that would make it difficult to translate to mobile platform
 2012/07/17
-	>Arimaa notation varies, so use internal representation of piece position and translate from/to Arimaa notation(s) (e.g. Hg3n) as needed.
+	>Arimaa notation varies, so use internal representation of piece (i.e. Piece) and position (i.e. square) and translate from/to Arimaa notation(s) (e.g. Hg3n) as needed.
 2012/08/03
 	>Must demonstrate game can run
 		>With ui, driven by user interaction (specification, boardstate, ruleEngine, render, interactions)

@@ -13,36 +13,40 @@ arimaa.specification = function(){
 
 	var
 
-	definePiece = function(color, id, type){
-		return {
-			"id": color + ':' + type + ':' + id,
-			"color": color,
-			"type": type
-		}
+	Piece = function(color, id, type){
+		this.id = color + ':' + type + ':' + id;
+		this.color = color;
+		this.type = type;
+		this.isEqual = function(piece){
+			return typeof(piece) !== 'undefined' && piece !== null && piece.id === this.id;
+		};
+		this.toString = function(){
+			return "piece:: id:" + this.id;
+		};
 	},
 
 	Elephant = function(color, id){
-		return definePiece(color, id, 'elephant');
+		return new Piece(color, id, 'elephant');
 	},
 
 	Camel = function(color, id){
-		return definePiece(color, id, 'camel');
+		return new Piece(color, id, 'camel');
 	},
 
 	Horse = function(color, id){
-		return definePiece(color, id, 'horse');
+		return new Piece(color, id, 'horse');
 	},
 
 	Dog = function(color, id){
-		return definePiece(color, id, 'dog');
+		return new Piece(color, id, 'dog');
 	},
 
 	Cat = function(color, id){
-		return definePiece(color, id, 'cat');
+		return new Piece(color, id, 'cat');
 	},
 
 	Rabbit = function(color, id){
-		return definePiece(color, id, 'rabbit');
+		return new Piece(color, id, 'rabbit');
 	},
 
 	Team = function(teamColor, startingPieces){

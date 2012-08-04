@@ -69,9 +69,18 @@ test( 'verify game board trap squares are specified', function() {
 	strictEqual(_.all(trapSquares, function(element){ return gameState.isTrap(element);}), true, 'invalid trap squares');
 });
 
+test( 'verify can setup pieces', function() {
+	var boardSpec = getBoardSpec();
+	var gameState = new arimaa.boardState(boardSpec);
+
+	strictEqual('actual', 'expected', 'defaultFailureMessage');
+});
+
 /*
-test( '', function() {
+test( 'description', function() {
 	var boardState = new arimaa.boardState(getBoardSpec());
-	strictEqual(, , '')
+	strictEqual('actual', 'expected', 'defaultFailureMessage');
+	//deepEqual('actual', 'expected', 'defaultFailureMessage');
+	//ok(truthy, 'defaultFailureMessage');
 });
 */
