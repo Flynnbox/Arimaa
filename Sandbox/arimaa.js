@@ -13,6 +13,10 @@ arimaa = (function(){
 		}
 	},
 
+	error = function(message){
+		arimaa.trigger('arimaa.error', message);
+	}
+
 	isLoggingFunctionDefined = function(){
 		return typeof(console) !== "undefined" && typeof(console.log) !== "undefined";
 	},
@@ -33,6 +37,7 @@ arimaa = (function(){
 
 	return {
 		log: log,
+		error: error,
 		trigger: trigger,
 		on: on
 	};

@@ -40,6 +40,12 @@ DESIGN DECISIONS
 		>With ui, driven by log file of moves (specification, boardstate, ruleEngine, render)
 		>Without ui, driven by log file of moves (specification, boardstate, ruleEngine)
 	>Design so that rendering method (e.g. canvas, svg) can be swapped with no impact except changing to alternate render js file
+2012/08/04
+	>Render, interactions, action should generate and receive events.
+	>Action should receive events (from Interaction or LogReader) but generate messages (i.e. direct function calls) to ruleEngine.
+		>Action should generate messages to interaction or render where appropriate (e.g. kill trapped piece)
+	>LogWriter should recieve events (from Interaction or LogReader) but generate log string.
+	>LogReader should recieve a list of moves and generate events that Action listens for.
 
 QUESTIONS / ISSUES
 Use revealing module pattern with/without constructors?
