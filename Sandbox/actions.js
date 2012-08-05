@@ -13,7 +13,7 @@ if (typeof(arimaa.action) === 'undefined') {
 arimaa.action = function(ruleEngine) {
 	"use strict";
 
-	var isSetup = false,
+	var isSetup = true,
 			currentTeam = 'gold',
 			moveCount = 0,
 			rules = ruleEngine,

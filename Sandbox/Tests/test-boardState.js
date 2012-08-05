@@ -80,7 +80,7 @@ test( 'verify can setup pieces', function() {
 
 	arimaa.trigger('arimaa.movePiece', piece, toSquare);
 
-	strictEqual('actual', 'expected', 'defaultFailureMessage');
+	strictEqual(piece, gameState.getPiece(toSquare), 'piece was not setup');
 });
 
 /*
