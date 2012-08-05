@@ -17,9 +17,15 @@ arimaa.specification = function(){
 		this.id = color + ':' + type + ':' + id;
 		this.color = color;
 		this.type = type;
+
+		this.isOfTeam = function(teamColor){
+			return this.color === teamColor;
+		};
+
 		this.isEqual = function(piece){
 			return typeof(piece) !== 'undefined' && piece !== null && piece.id === this.id;
 		};
+
 		this.toString = function(){
 			return "piece:: id:" + this.id;
 		};
@@ -218,6 +224,8 @@ arimaa.specification = function(){
 		defineGameStyle: defineGameStyle,
 		defineSprite: defineSprite,
 		createSpriteProvider: createSpriteProvider,
-		getSquaresForRow: getSquaresForRow
+		getSquaresForRow: getSquaresForRow,
+		Piece: Piece,
+		Team: Team
 	};
 };

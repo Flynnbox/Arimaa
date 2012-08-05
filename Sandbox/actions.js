@@ -6,8 +6,8 @@ if (typeof(arimaa) === 'undefined') {
     alert('requires arimaa.js');
 }
 
-if (typeof(arimaa.canvasRenderer) === 'undefined') {
-    arimaa.renderer = {};
+if (typeof(arimaa.action) === 'undefined') {
+    arimaa.action = {};
 }
 
 arimaa.action = function(ruleEngine) {
@@ -26,7 +26,7 @@ arimaa.action = function(ruleEngine) {
 
 		if (isSetup){
 			rules.setPiece(currentTeam, piece, square);
-			arimaa.trigger('arimaa.setup', {"piece": piece, "square": square});
+			arimaa.trigger('arimaa.setup', piece, square);
 			return;
 		}
 		if (moveCount === 4){
@@ -35,7 +35,7 @@ arimaa.action = function(ruleEngine) {
 		}
 		moveCount++;
 		rules.movePiece(currentTeam, piece, square);
-		arimaa.trigger('arimaa.move', {"piece": piece, "square": square});
+		arimaa.trigger('arimaa.move', piece, square);
 	},
 
 	beginTurn = function(){
@@ -54,7 +54,7 @@ arimaa.action = function(ruleEngine) {
 			return;
 		}
 		currentTeam = 'gold';
-	}
+	},
 
 	subscribe = function(){
 		arimaa.on('arimaa.movePiece', movePiece);

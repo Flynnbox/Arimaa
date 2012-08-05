@@ -5,7 +5,7 @@ if (typeof(arimaa) === 'undefined') {
 }
 
 if (typeof(arimaa.canvasRenderer) === 'undefined') {
-    arimaa.renderer = {};
+    arimaa.canvasRenderer = {};
 }
 
 arimaa.canvasRenderer = function(canvasDomNode, spriteSpecification, boardSpecification, styleSpecification) {

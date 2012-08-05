@@ -15,6 +15,7 @@ arimaa.boardState = function(newBoard, goldTeam, silverTeam) {
 			gold = goldTeam,
 			silver = silverTeam,
 			moveLog = [],
+			setupPieces = [],
 			capturedPieces = [],
 			currentState = [],
 			draftState = [],
@@ -166,4 +167,4 @@ arimaa.boardState = function(newBoard, goldTeam, silverTeam) {
 		setPiece: setPiece,
 		removePiece: removePiece
 	};
-}
+};

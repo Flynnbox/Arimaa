@@ -71,7 +71,14 @@ test( 'verify game board trap squares are specified', function() {
 
 test( 'verify can setup pieces', function() {
 	var boardSpec = getBoardSpec();
-	var gameState = new arimaa.boardState(boardSpec);
+	var goldTeam = new arimaaSpec.Team('gold');
+	var gameState = new arimaa.boardState(boardSpec, goldTeam);
+	var piece = gameState.gold.pieces[0]; 
+	var toSquare = arimaaSpec.getSquaresForRow(boardSpec, setupRowsGold)[0];
+	var arimaaRules = new arimaa.rules(gameState);
+	var arimaaAction = new arimaa.action(arimaaRules);
+
+	arimaa.trigger('arimaa.movePiece', piece, toSquare);
 
 	strictEqual('actual', 'expected', 'defaultFailureMessage');
 });
