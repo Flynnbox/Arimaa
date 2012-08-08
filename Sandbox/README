@@ -79,6 +79,8 @@ MILESTONES
 !On click of alternate square, remove highlight from prior square
 On lowlight, preserve sprite on square
 On lowlight, restore prior color to square
+On mouseover/touch, render highlight
+On touch release, trigger "click"
 
 
 GAME STATE VALIDATIONS
