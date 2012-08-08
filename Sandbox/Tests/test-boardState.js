@@ -83,6 +83,22 @@ test( 'verify can setup pieces', function() {
 	strictEqual(piece, gameState.getPiece(toSquare), 'piece was not setup');
 });
 
+test( 'verify setup of piece on existing location replaces piece', function() {
+	var boardSpec = getBoardSpec();
+	var goldTeam = new arimaaSpec.Team('gold');
+	var gameState = new arimaa.boardState(boardSpec, goldTeam);
+	var piece1 = gameState.gold.pieces[0];
+	var piece2 = gameState.gold.pieces[1]; 
+	var toSquare = arimaaSpec.getSquaresForRow(boardSpec, setupRowsGold)[0];
+	var arimaaRules = new arimaa.rules(gameState);
+	var arimaaAction = new arimaa.action(arimaaRules);
+	arimaa.debug(gameState.isOccupied(toSquare));
+	arimaa.trigger('arimaa.movePiece', piece1, toSquare);
+	arimaa.trigger('arimaa.movePiece', piece2, toSquare);
+
+	strictEqual(piece2, gameState.getPiece(toSquare), 'piece was not replaced');
+});
+
 /*
 test( 'description', function() {
 	var boardState = new arimaa.boardState(getBoardSpec());

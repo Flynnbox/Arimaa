@@ -133,7 +133,7 @@ arimaa.boardState = function(newBoard, goldTeam, silverTeam) {
 			boardSquare.piece = piece;
 			return;
 		}
-		arimaa.log("boardState::setPiece:: Cannot set " + piece.id + " on position " + boardSquare.id + "; " + piece.id + " is currently occupying that position.")
+		arimaa.log("boardState::setPiece:: Cannot set " + piece.id + " on position " + boardSquare.id + "; " + boardSquare.piece.id + " is currently occupying that position.")
 	},
 
 	removePiece = function(square){

@@ -63,7 +63,7 @@ arimaa.action = function(ruleEngine) {
 	},
 
 	error = function(functionName, message){
-		arimaa.error('arimaa::action::' + error.caller + ': ' + message);
+		arimaa.error('arimaa::action::' + functionName + ': ' + message);
 	};
 
 	subscribe();
