@@ -5,10 +5,17 @@ if (typeof(arimaa) === 'undefined') {
 arimaa = (function(){
 
 	var isLogEnabled = false,
+			isDebugEnabled = true,
 			emitter = LucidJS.emitter();
 
 	log = function(object){
 		if (isLogEnabled === true){
+			console.log(object);
+		}
+	},
+
+	debug = function(object){
+		if (isLogEnabled === true && isDebugEnabled === true){
 			console.log(object);
 		}
 	},
@@ -36,6 +43,7 @@ arimaa = (function(){
 	isLogEnabled = isLoggingFunctionDefined();
 
 	return {
+		debug: debug,
 		log: log,
 		error: error,
 		trigger: trigger,

@@ -118,7 +118,8 @@ arimaa.boardState = function(newBoard, goldTeam, silverTeam) {
 	},
 
 	getBoardSquare = function(square){
-		return _.find(board.squares, function(element){ return element.column === square.column && element.row === square.row;});
+		var boardSquare = _.find(board.squares, function(element){ return element.column === square.column && element.row === square.row;});
+		return boardSquare;
 	},
 
 	getPiece = function(square){
@@ -163,6 +164,7 @@ arimaa.boardState = function(newBoard, goldTeam, silverTeam) {
 		isGoal: isGoalSquare,
 		isSetup: isSetupSquare,
 		isTrap: isTrapSquare,
+		isOccupied: isOccupied,
 		getPiece: getPiece,
 		setPiece: setPiece,
 		removePiece: removePiece
