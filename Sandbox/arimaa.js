@@ -42,6 +42,8 @@ arimaa = (function(){
 
 	isLogEnabled = isLoggingFunctionDefined();
 
+	on('arimaa.error', log);
+
 	return {
 		debug: debug,
 		log: log,

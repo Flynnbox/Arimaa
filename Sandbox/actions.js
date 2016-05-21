@@ -23,19 +23,20 @@ arimaa.action = function(ruleEngine) {
 			arimaa.trigger('arimaa.error', 'arimaa::action::movePiece: Current Team is ' + currentTeam + ' but move recieved was from ' + team)
 			return;
 		}*/
-
+		var result = false;
 		if (isSetup){
-			rules.setPiece(currentTeam, piece, square);
+			result = rules.setPiece(currentTeam, piece, square);
 			arimaa.trigger('arimaa.setup', piece, square);
-			return;
+			return result;
 		}
 		if (moveCount === 4){
 			error('An attempt was made to make more than 4 moves.');
-			return;
+			return false;
 		}
 		moveCount++;
-		rules.movePiece(currentTeam, piece, square);
+		result = rules.movePiece(currentTeam, piece, square);
 		arimaa.trigger('arimaa.move', piece, square);
+		return result;
 	},
 
 	beginTurn = function(){
