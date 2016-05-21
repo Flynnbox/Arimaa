@@ -1,6 +1,6 @@
 This is a sandbox where I will test code or rough out a design before implementing it in the codebase.
 
-**These are unorganized design notes not intended for public use.  It's really just me thinking aloud.  Nothin in here is concrete until it is implemented in code (and then it is subject to change).  However, feel free to give me feedback or suggestions on anything you see in here.**
+**These are unorganized design notes not intended for public use.  It's really just me thinking aloud.  Nothing in here is concrete until it is implemented in code (and then it is subject to change).  However, feel free to give me feedback or suggestions on anything you see in here.**
 
 COMPONENTS
 >UI logic / Interaction / Validation / Eventing: Javascript

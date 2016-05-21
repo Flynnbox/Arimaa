@@ -141,7 +141,7 @@ arimaa.boardState = function(newBoard, goldTeam, silverTeam) {
 		if(boardSquare.piece === null){
 			arimaa.log("boardState::removePiece:: Cannot remove a piece from position " + boardSquare.id + " as no piece is currently occupying it.")
 		}
-		boardSquare.piece == null;
+		boardSquare.piece = null;
 	},
 
 	updateDraftState = function(){

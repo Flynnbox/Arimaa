@@ -19,9 +19,10 @@ arimaa.rules = function(gameState) {
 	setPiece = function(teamColor, piece, square){
 		if(!model.isSetup(square, teamColor)){
 			error('setPiece', 'The selected ' + square.toString() + ' is not a setup position for the ' + teamColor + ' team');
+			return;
 		}
 		if(model.isOccupied(square)){
-			error('setPiece', 'The selected ' + square.toString() + ' is already occupied');
+			model.removePiece(square);
 		}
 		model.setPiece(square, piece);
 	},
