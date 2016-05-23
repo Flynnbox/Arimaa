@@ -20,13 +20,13 @@ arimaa.action = function(ruleEngine) {
 
 	movePiece = function(piece, square){
 		/*if (team !== currentTeam){
-			arimaa.trigger('arimaa.error', 'arimaa::action::movePiece: Current Team is ' + currentTeam + ' but move recieved was from ' + team)
+			arimaa.events.error.emit('arimaa::action::movePiece: Current Team is ' + currentTeam + ' but move recieved was from ' + team)
 			return;
 		}*/
 		var result = false;
 		if (isSetup){
 			result = rules.setPiece(currentTeam, piece, square);
-			arimaa.trigger('arimaa.setup', piece, square);
+			arimaa.events.setup.emit( piece, square);
 			return result;
 		}
 		if (moveCount === 4){
@@ -35,13 +35,13 @@ arimaa.action = function(ruleEngine) {
 		}
 		moveCount++;
 		result = rules.movePiece(currentTeam, piece, square);
-		arimaa.trigger('arimaa.move', piece, square);
+		arimaa.events.move.emit(piece, square);
 		return result;
 	},
 
 	beginTurn = function(){
 		moveCount = 0;
-		//arimaa.trigger('arimaa.beginTurn', {"currentTeam": currentTeam});
+		//arimaa.beginTurn.emit({"currentTeam": currentTeam});
 	},
 
 	endTurn = function(){
@@ -58,9 +58,9 @@ arimaa.action = function(ruleEngine) {
 	},
 
 	subscribe = function(){
-		arimaa.on('arimaa.movePiece', movePiece);
-		arimaa.on('arimaa.beginTurn', beginTurn);
-		arimaa.on('arimaa.endTurn', endTurn);
+		arimaa.events.movePiece.on(movePiece);
+		arimaa.events.beginTurn.on(beginTurn);
+		arimaa.events.endTurn.on(endTurn);
 	},
 
 	error = function(functionName, message){

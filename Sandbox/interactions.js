@@ -15,13 +15,13 @@ arimaa.interactions = function(renderProvider) {
 			selectedSquare = null,
 
 	subscribe = function(){
-		arimaa.on('arimaa.squareSelected', squareSelected);
+		arimaa.events.squareSelected.on(squareSelected);
 	},
 
 	squareSelected = function(newSquare) {
     if (selectedSquare !== null){ 	
     	arimaa.log('deselecting ' + selectedSquare.toString());
-    	arimaa.trigger('arimaa.squareDeselected', selectedSquare);
+    	arimaa.events.squareDeselected.emit(selectedSquare);
     	renderer.lowlightSquare(selectedSquare);
     	if (selectedSquare.isEqual(newSquare)){    	
     		selectedSquare = null;

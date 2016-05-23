@@ -99,10 +99,10 @@ arimaa.canvasRenderer = function(canvasDomNode, spriteSpecification, boardSpecif
 
 	eventClick = function(e){
 		var point = getCursorPoint(e);
-		arimaa.trigger('arimaa.ui.click', point);
+		arimaa.ui.click.emit(point);
 		//TODO: Check if point is outside board; e.g. may not be square
 		var clickedSquare = calculateSquareFromPixels(point.x, point.y);
-		arimaa.trigger('arimaa.squareSelected', clickedSquare);
+		arimaa.squareSelected.emit(clickedSquare);
 	},
 
 	addEventListeners = function(){

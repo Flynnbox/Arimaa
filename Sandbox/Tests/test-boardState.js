@@ -76,7 +76,7 @@ QUnit.test( 'verify can setup pieces', function(assert) {
 	var arimaaRules = new arimaa.rules(gameState);
 	var arimaaAction = new arimaa.action(arimaaRules);
 
-	arimaa.trigger('arimaa.movePiece', piece, toSquare);
+	arimaa.events.movePiece.emit(piece, toSquare);
 
 	assert.strictEqual(piece, gameState.getPiece(toSquare), 'piece was not setup');
 });
@@ -90,8 +90,8 @@ QUnit.test( 'verify setup of piece on existing location replaces piece', functio
 	var toSquare = arimaaSpec.getSquaresForRow(boardSpec, setupRowsGold)[0];
 	var arimaaRules = new arimaa.rules(gameState);
 	var arimaaAction = new arimaa.action(arimaaRules);
-	arimaa.trigger('arimaa.movePiece', piece1, toSquare);
-	arimaa.trigger('arimaa.movePiece', piece2, toSquare);
+	arimaa.events.movePiece.emit(piece1, toSquare);
+	arimaa.events.movePiece.emit(piece2, toSquare);
 
 	assert.strictEqual(piece2, gameState.getPiece(toSquare), 'piece was not replaced');
 });
@@ -104,7 +104,7 @@ QUnit.test( 'verify setup of piece on non-setup location fails', function(assert
 	var toSquare = trapSquares[0];
 	var arimaaRules = new arimaa.rules(gameState);
 	var arimaaAction = new arimaa.action(arimaaRules);
-	arimaa.trigger('arimaa.movePiece', piece1, toSquare);
+	arimaa.events.movePiece.emit(piece1, toSquare);
 
 	assert.strictEqual(null, gameState.getPiece(toSquare), 'piece was not placed');
 });
